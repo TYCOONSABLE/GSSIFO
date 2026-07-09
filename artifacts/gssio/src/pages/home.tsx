@@ -1,6 +1,7 @@
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Globe2, BookOpen, Droplets, HeartHandshake, Sprout, Coins, Shield, Flame } from "lucide-react";
+import heroImage from "@/assets/images/hero-community.jpg";
 
 export default function Home() {
   return (
@@ -9,14 +10,11 @@ export default function Home() {
       <section className="relative bg-primary text-primary-foreground pt-32 pb-40 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src="/src/assets/images/hero-community.jpg" 
-            alt="Community gathering" 
-            className="w-full h-full object-cover opacity-20 mix-blend-overlay"
-            onError={(e) => {
-              e.currentTarget.src = "https://images.unsplash.com/photo-1593113565630-1de441fd7098?auto=format&fit=crop&q=80&w=2000";
-            }}
+            src={heroImage} 
+            alt="GSSIO field team working with a local community" 
+            className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-primary to-primary/50" />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/70 to-primary/40" />
         </div>
         
         <div className="container relative z-10 mx-auto px-4 max-w-5xl">
