@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "GSSIO"
+version = "1.0.0"
+id = "artifacts/gssio"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 20276
+
+[services.development]
+run = "pnpm --filter @workspace/gssio run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/gssio", "run", "build" ]
+publicDir = "artifacts/gssio/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "20276"
+BASE_PATH = "/"

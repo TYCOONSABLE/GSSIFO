@@ -1,0 +1,32 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "Zf4MMryYq3Il_JkwgC1mk"
+uri = "file://artifacts/gssio/src/assets/images/story-1.jpg"
+type = "image"
+title = "documentary photo of a healthcare worker helping a child in a clinic"
+
+[[outputs]]
+id = "XBZ9M_YCo7vAZVuFUtSAR"
+uri = "file://artifacts/gssio/src/assets/images/story-2.jpg"
+type = "image"
+title = "documentary photo of clean water initiative, people smiling near a well"
+
+[[outputs]]
+id = "TEbnZLe4PlbGhzEWWJ5wv"
+uri = "file://artifacts/gssio/src/assets/images/story-3.jpg"
+type = "image"
+title = "documentary photo of a teacher in a rural classroom with students"
+
+[[outputs]]
+id = "xD0CsbR99Ocpio6WNVzUJ"
+uri = "file://artifacts/gssio/src/assets/images/campaign.jpg"
+type = "image"
+title = "large scale agriculture or farming project, workers in field, wide shot"
+
+[[outputs]]
+id = "j4T1HtJsx6LekAAUIr_Ov"
+uri = "file://artifacts/gssio/src/assets/images/hero-community.jpg"
+type = "image"
+title = "diverse community outdoors bright daylight"

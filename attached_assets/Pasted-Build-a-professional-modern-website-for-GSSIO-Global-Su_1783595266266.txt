@@ -1,0 +1,56 @@
+Build a professional, modern website for GSSIO (Global Sustainability and Social Impact Organisation) — an international non-profit modeled on the design standards of UNESCO, WHO, and UNICEF, but with its own distinct blue-based identity.
+
+TECH STACK
+- React (Vite) + Tailwind CSS
+- Fully responsive (mobile-first)
+- React Router for multi-page navigation
+- Clean, component-based structure (Navbar, Hero, Footer, Card, StatCounter, Button as reusable components)
+
+COLOUR PALETTE (use CSS variables / Tailwind theme extension — only these colours, no extras)
+- Primary — Ocean Blue: #0B5FA5 (logo, header, primary buttons, links)
+- Secondary — Sky Teal: #2AA9C4 (icons, hover states, secondary buttons)
+- Background — White: #FFFFFF (main background)
+- Text — Charcoal Black: #1A1A1A (all body text and headlines)
+- Section tint — Pale Blue-Grey: #EEF3F7 (alternate section backgrounds, cards)
+- Accent — Warm Gold: #E8A33D (use sparingly — only for stat highlights, badges, and the Donate button)
+
+TYPOGRAPHY
+- Clean sans-serif only (Inter or similar)
+- Large, bold headlines; generous line-height/spacing
+- No decorative or script fonts
+
+NAVIGATION (top bar, max 6 tabs, sticky on scroll)
+Who We Are | What We Do | Impact & Reports | Stories | Get Involved | Donate
+- "Donate" must be a standalone bright gold button, separate from the regular nav links (never buried in a dropdown)
+- Once "What We Do" has 7 sub-pages, turn it into a mega-menu dropdown listing all 7 pillars
+
+SITE PAGES (build all of these)
+1. Home
+2. Who We Are (mission, history, leadership)
+3. What We Do — overview page with 7 Programme Pillars shown as clickable tiles/cards, each linking to (or anchor-scrolling to) its own section
+4. Impact & Reports (stats + results)
+5. Stories (news/blog grid — case studies, updates)
+6. Get Involved (volunteer, partner, careers)
+7. Donate (simple form/CTA page)
+8. Contact Us
+
+HOMEPAGE STRUCTURE (build exactly these 8 stacked sections, top to bottom)
+1. Hero banner — full-width, ocean blue background, large headline + one-line mission statement + primary CTA button
+2. Mission strip — one short sentence restating GSSIO's purpose
+3. "Our 7 Pillars" — grid of 7 clickable tiles (icon + short title), pale blue-grey background
+4. Impact stats row — 3–4 big bold numbers (e.g. "X communities reached", "Y programmes active", "Z countries") on a teal or gold-accented strip
+5. Latest Stories — grid of 3–4 uniform cards (image + category tag + date + short title)
+6. Spotlight / Featured Campaign — one large feature block highlighting a current initiative
+7. Newsletter sign-up banner — simple email capture, teal background
+8. Footer — large multi-column footer: sitemap links, social icons, contact info, newsletter link, legal/policy links, dark ocean blue background with white text
+
+DESIGN PATTERNS TO FOLLOW THROUGHOUT
+- Real, documentary-style imagery only (use high-quality placeholder photos of real people/communities, not cartoon stock icons)
+- Buttons: simple rectangular or slightly rounded, brand colour fill, short action-first text ("Donate", "Get Involved", "Read more") — never long sentences
+- Cards: consistent format everywhere — image + tag + date/label + short title
+- Generous white space between every section — nothing should feel cramped
+- Stat numbers should be large and bold, used as trust signals
+- Add "Skip to main content" link and alt text on all images for accessibility
+- Keep every page within 2 clicks of the homepage
+
+Start by scaffolding the project structure and Navbar/Footer components, then build the Home page fully, then the remaining 7 pages with placeholder content I can edit later.
