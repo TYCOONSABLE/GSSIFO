@@ -1,7 +1,8 @@
 import { Link, useLocation } from "wouter";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, Search, Globe } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import logoImage from "@/assets/images/gssio-logo.png";
 
 const pillars = [
   { name: "Global Health", path: "/what-we-do#health" },
@@ -20,146 +21,172 @@ export function Navbar() {
   const isActive = (path: string) => location === path;
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
-      <div className="container mx-auto px-4 h-20 flex items-center justify-between">
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 z-50">
-          <div className="w-10 h-10 bg-primary text-white flex items-center justify-center rounded-sm font-bold text-xl tracking-tighter">
-            GS
-          </div>
-          <span className="font-bold text-xl tracking-tight text-primary hidden sm:inline-block">
-            GSSIO
-          </span>
-        </Link>
-
-        {/* Desktop Nav */}
-        <nav className="hidden lg:flex items-center gap-8">
-          <Link
-            href="/who-we-are"
-            className={`text-sm font-medium transition-colors hover:text-secondary ${
-              isActive("/who-we-are") ? "text-primary" : "text-foreground/80"
-            }`}
-          >
-            Who We Are
+    <>
+      <div className="bg-primary text-white py-2 px-4 text-center text-sm font-medium">
+        Join our upcoming Global Sustainability Summit 2024. <a href="#" className="underline font-bold ml-1">Register now.</a>
+      </div>
+      <header className="sticky top-0 z-50 w-full bg-background/80 backdrop-blur-md border-b transition-all duration-300 shadow-sm">
+        <div className="container mx-auto px-4 h-20 flex items-center justify-between max-w-[1280px]">
+          {/* Logo */}
+          <Link href="/" className="flex items-center gap-3 z-50">
+            <img src={logoImage} alt="GSSIO Logo" className="h-10 w-auto object-contain" />
+            <span className="font-bold text-2xl tracking-tight text-primary hidden sm:inline-block">
+              GSSIO
+            </span>
           </Link>
-          
-          <div className="group relative py-8">
+
+          {/* Desktop Nav */}
+          <nav className="hidden lg:flex items-center gap-6">
             <Link
-              href="/what-we-do"
-              className={`text-sm font-medium flex items-center gap-1 transition-colors hover:text-secondary ${
-                isActive("/what-we-do") ? "text-primary" : "text-foreground/80"
+              href="/who-we-are"
+              className={`text-sm font-medium uppercase tracking-wide transition-colors hover:text-primary ${
+                isActive("/who-we-are") ? "text-primary border-b-2 border-primary pb-1" : "text-foreground/80"
               }`}
             >
-              What We Do <ChevronDown className="w-4 h-4 transition-transform group-hover:rotate-180" />
-            </Link>
-            
-            <div className="absolute top-full left-1/2 -translate-x-1/2 w-[600px] bg-white border shadow-xl rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 grid grid-cols-2 p-6 gap-6">
-              <div className="col-span-2 pb-4 border-b">
-                <h3 className="font-semibold text-lg text-primary">Our 7 Programme Pillars</h3>
-                <p className="text-sm text-muted-foreground mt-1">Comprehensive action across global challenges.</p>
-              </div>
-              <div className="flex flex-col gap-3">
-                {pillars.slice(0, 4).map((pillar) => (
-                  <Link key={pillar.name} href={pillar.path} className="text-sm font-medium hover:text-secondary hover:underline">
-                    {pillar.name}
-                  </Link>
-                ))}
-              </div>
-              <div className="flex flex-col gap-3">
-                {pillars.slice(4).map((pillar) => (
-                  <Link key={pillar.name} href={pillar.path} className="text-sm font-medium hover:text-secondary hover:underline">
-                    {pillar.name}
-                  </Link>
-                ))}
-                <Link href="/what-we-do" className="text-sm font-bold text-primary hover:text-secondary mt-2">
-                  View All Programmes &rarr;
-                </Link>
-              </div>
-            </div>
-          </div>
-
-          <Link
-            href="/impact-reports"
-            className={`text-sm font-medium transition-colors hover:text-secondary ${
-              isActive("/impact-reports") ? "text-primary" : "text-foreground/80"
-            }`}
-          >
-            Impact & Reports
-          </Link>
-          
-          <Link
-            href="/stories"
-            className={`text-sm font-medium transition-colors hover:text-secondary ${
-              isActive("/stories") ? "text-primary" : "text-foreground/80"
-            }`}
-          >
-            Stories
-          </Link>
-          
-          <Link
-            href="/get-involved"
-            className={`text-sm font-medium transition-colors hover:text-secondary ${
-              isActive("/get-involved") ? "text-primary" : "text-foreground/80"
-            }`}
-          >
-            Get Involved
-          </Link>
-        </nav>
-
-        {/* CTA & Mobile Toggle */}
-        <div className="flex items-center gap-4">
-          <Link href="/donate" className="hidden sm:inline-flex">
-            <Button className="bg-accent hover:bg-accent/90 text-accent-foreground font-bold px-8 h-11 rounded-sm shadow-sm transition-all hover:scale-105 active:scale-95">
-              Donate
-            </Button>
-          </Link>
-          
-          <button
-            className="lg:hidden p-2 text-foreground"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile Menu */}
-      {mobileMenuOpen && (
-        <div className="lg:hidden fixed inset-0 top-20 bg-white z-40 overflow-y-auto border-t">
-          <nav className="flex flex-col p-6 gap-6">
-            <Link href="/who-we-are" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-foreground">
               Who We Are
             </Link>
-            <div className="flex flex-col gap-4">
-              <Link href="/what-we-do" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-foreground">
-                What We Do
+            
+            <div className="group relative py-8">
+              <Link
+                href="/what-we-do"
+                className={`text-sm font-medium uppercase tracking-wide flex items-center gap-1 transition-colors hover:text-primary ${
+                  isActive("/what-we-do") ? "text-primary border-b-2 border-primary pb-1" : "text-foreground/80"
+                }`}
+              >
+                What We Do <ChevronDown className="w-4 h-4 transition-transform group-hover:rotate-180" />
               </Link>
-              <div className="pl-4 flex flex-col gap-3 border-l-2 border-muted">
-                {pillars.map((pillar) => (
-                  <Link key={pillar.name} href={pillar.path} onClick={() => setMobileMenuOpen(false)} className="text-muted-foreground">
-                    {pillar.name}
+              
+              <div className="absolute top-full left-1/2 -translate-x-1/2 w-[600px] bg-background border shadow-xl rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 grid grid-cols-2 p-6 gap-6">
+                <div className="col-span-2 pb-4 border-b">
+                  <h3 className="font-semibold text-lg text-primary">Our 7 Programme Pillars</h3>
+                  <p className="text-sm text-muted-foreground mt-1">Comprehensive action across global challenges.</p>
+                </div>
+                <div className="flex flex-col gap-3">
+                  {pillars.slice(0, 4).map((pillar) => (
+                    <Link key={pillar.name} href={pillar.path} className="text-sm font-medium hover:text-primary hover:underline">
+                      {pillar.name}
+                    </Link>
+                  ))}
+                </div>
+                <div className="flex flex-col gap-3">
+                  {pillars.slice(4).map((pillar) => (
+                    <Link key={pillar.name} href={pillar.path} className="text-sm font-medium hover:text-primary hover:underline">
+                      {pillar.name}
+                    </Link>
+                  ))}
+                  <Link href="/what-we-do" className="text-sm font-bold text-primary hover:text-primary/80 mt-2">
+                    View All Programmes &rarr;
                   </Link>
-                ))}
+                </div>
               </div>
             </div>
-            <Link href="/impact-reports" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-foreground">
+
+            <Link
+              href="/impact-reports"
+              className={`text-sm font-medium uppercase tracking-wide transition-colors hover:text-primary ${
+                isActive("/impact-reports") ? "text-primary border-b-2 border-primary pb-1" : "text-foreground/80"
+              }`}
+            >
               Impact & Reports
             </Link>
-            <Link href="/stories" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-foreground">
+            
+            <Link
+              href="/stories"
+              className={`text-sm font-medium uppercase tracking-wide transition-colors hover:text-primary ${
+                isActive("/stories") ? "text-primary border-b-2 border-primary pb-1" : "text-foreground/80"
+              }`}
+            >
               Stories
             </Link>
-            <Link href="/get-involved" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-foreground">
+            
+            <Link
+              href="/get-involved"
+              className={`text-sm font-medium uppercase tracking-wide transition-colors hover:text-primary ${
+                isActive("/get-involved") ? "text-primary border-b-2 border-primary pb-1" : "text-foreground/80"
+              }`}
+            >
               Get Involved
             </Link>
-            <Link href="/donate" onClick={() => setMobileMenuOpen(false)} className="mt-4">
-              <Button className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-bold h-12 rounded-sm text-lg">
-                Donate Now
+          </nav>
+
+          {/* Actions */}
+          <div className="flex items-center gap-4">
+            <div className="hidden xl:flex items-center bg-muted rounded-full px-4 py-1.5 border border-border">
+              <Search className="w-4 h-4 text-muted-foreground mr-2" />
+              <input className="bg-transparent border-none focus:outline-none text-sm w-32 placeholder:text-muted-foreground" placeholder="Search..." type="text" />
+            </div>
+            
+            <button className="text-foreground/80 hover:text-primary transition-colors hidden sm:block">
+              <Globe className="w-5 h-5" />
+            </button>
+
+            <Link href="/get-involved" className="hidden lg:inline-flex">
+              <Button variant="outline" className="text-primary border-primary hover:bg-primary/5 font-semibold rounded-lg px-6">
+                Volunteer
               </Button>
             </Link>
-          </nav>
+
+            <Link href="/donate" className="hidden sm:inline-flex">
+              <Button className="bg-primary hover:bg-primary/90 text-white font-semibold px-6 rounded-lg transition-all">
+                Donate
+              </Button>
+            </Link>
+            
+            <button
+              className="lg:hidden p-2 text-foreground"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </div>
-      )}
-    </header>
+
+        {/* Mobile Menu */}
+        {mobileMenuOpen && (
+          <div className="lg:hidden fixed inset-0 top-[116px] bg-background z-40 overflow-y-auto border-t">
+            <nav className="flex flex-col p-6 gap-6">
+              <Link href="/who-we-are" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-foreground uppercase tracking-wide">
+                Who We Are
+              </Link>
+              <div className="flex flex-col gap-4">
+                <Link href="/what-we-do" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-foreground uppercase tracking-wide">
+                  What We Do
+                </Link>
+                <div className="pl-4 flex flex-col gap-3 border-l-2 border-muted">
+                  {pillars.map((pillar) => (
+                    <Link key={pillar.name} href={pillar.path} onClick={() => setMobileMenuOpen(false)} className="text-muted-foreground">
+                      {pillar.name}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+              <Link href="/impact-reports" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-foreground uppercase tracking-wide">
+                Impact & Reports
+              </Link>
+              <Link href="/stories" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-foreground uppercase tracking-wide">
+                Stories
+              </Link>
+              <Link href="/get-involved" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-foreground uppercase tracking-wide">
+                Get Involved
+              </Link>
+              <div className="mt-4 flex flex-col gap-3">
+                <Link href="/get-involved" onClick={() => setMobileMenuOpen(false)}>
+                  <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary/5 rounded-lg h-12 text-lg">
+                    Volunteer
+                  </Button>
+                </Link>
+                <Link href="/donate" onClick={() => setMobileMenuOpen(false)}>
+                  <Button className="w-full bg-primary hover:bg-primary/90 text-white font-bold h-12 rounded-lg text-lg">
+                    Donate Now
+                  </Button>
+                </Link>
+              </div>
+            </nav>
+          </div>
+        )}
+      </header>
+    </>
   );
 }
+

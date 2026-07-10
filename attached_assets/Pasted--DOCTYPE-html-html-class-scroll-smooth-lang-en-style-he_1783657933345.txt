@@ -1,0 +1,599 @@
+<!DOCTYPE html><html class="scroll-smooth" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>GSSIO | Empowering People. Transforming Communities.</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-surface": "#021c3a",
+                    "primary-container": "#005eb8",
+                    "surface": "#f9f9ff",
+                    "tertiary-container": "#7b5900",
+                    "on-secondary-fixed-variant": "#005312",
+                    "inverse-surface": "#1a3150",
+                    "surface-bright": "#f9f9ff",
+                    "surface-dim": "#c8dbff",
+                    "on-primary-fixed-variant": "#00468c",
+                    "error": "#ba1a1a",
+                    "on-error": "#ffffff",
+                    "secondary-fixed": "#a3f69c",
+                    "surface-container-low": "#f0f3ff",
+                    "surface-container": "#e7eeff",
+                    "on-primary-fixed": "#001b3d",
+                    "secondary-container": "#a0f399",
+                    "on-primary": "#ffffff",
+                    "inverse-primary": "#a9c7ff",
+                    "secondary-fixed-dim": "#88d982",
+                    "on-tertiary": "#ffffff",
+                    "on-tertiary-container": "#ffd37e",
+                    "on-secondary": "#ffffff",
+                    "tertiary-fixed-dim": "#fdbc13",
+                    "on-secondary-fixed": "#002204",
+                    "error-container": "#ffdad6",
+                    "on-error-container": "#93000a",
+                    "on-tertiary-fixed-variant": "#5d4200",
+                    "tertiary-fixed": "#ffdea3",
+                    "secondary": "#1b6d24",
+                    "surface-container-highest": "#d5e3ff",
+                    "inverse-on-surface": "#ebf1ff",
+                    "on-tertiary-fixed": "#261900",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-fixed-dim": "#a9c7ff",
+                    "primary": "#00478d",
+                    "on-background": "#021c3a",
+                    "outline-variant": "#c2c6d4",
+                    "outline": "#727783",
+                    "primary-fixed": "#d6e3ff",
+                    "on-primary-container": "#c8daff",
+                    "background": "#f9f9ff",
+                    "on-secondary-container": "#217128",
+                    "tertiary": "#5d4300",
+                    "surface-container-high": "#dee8ff",
+                    "surface-tint": "#005db6",
+                    "surface-variant": "#d5e3ff",
+                    "on-surface-variant": "#424752"
+            },
+            "borderRadius": {
+                    "DEFAULT": "2px",
+                    "lg": "4px",
+                    "xl": "8px",
+                    "full": "12px"
+            },
+            "spacing": {
+                    "margin-desktop": "64px",
+                    "margin-mobile": "20px",
+                    "stack-sm": "16px",
+                    "gutter": "24px",
+                    "unit": "8px",
+                    "container-max": "1280px",
+                    "stack-md": "32px",
+                    "stack-lg": "80px"
+            },
+            "fontFamily": {
+                    "body-md": ["IBM Plex Sans"],
+                    "display-md": ["IBM Plex Sans"],
+                    "headline-lg": ["IBM Plex Sans"],
+                    "caption": ["IBM Plex Sans"],
+                    "body-lg": ["IBM Plex Sans"],
+                    "label-md": ["IBM Plex Sans"],
+                    "headline-md": ["IBM Plex Sans"],
+                    "headline-lg-mobile": ["IBM Plex Sans"],
+                    "display-lg": ["IBM Plex Sans"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display-md": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "caption": ["12px", {"lineHeight": "1.4", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "headline-md": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-nav {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .stat-card-shadow {
+            box-shadow: 0px 4px 20px rgba(10, 35, 66, 0.08);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body-md text-on-surface selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Announcement Bar -->
+<div class="bg-primary text-on-primary py-2 px-margin-desktop text-center font-label-md text-label-md">
+        Join our upcoming Global Sustainability Summit 2024. <a class="underline font-bold ml-1" href="#">Register now.</a>
+</div>
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-margin-desktop max-w-container-max mx-auto bg-surface/80 dark:bg-on-surface/80 backdrop-blur-md transition-all duration-300 ease-in-out mt-[40px] py-4 shadow-sm">
+<div class="flex items-center gap-stack-md">
+<span class="font-display-md text-headline-md font-bold text-primary dark:text-primary-fixed">GSSIO</span>
+<nav class="hidden md:flex gap-6 items-center">
+<a class="font-label-md text-label-md text-primary dark:text-primary-fixed border-b-2 border-primary dark:border-primary-fixed pb-1" href="#">Home</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-opacity hover:opacity-80" href="#">About</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-opacity hover:opacity-80" href="#">Programs</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-opacity hover:opacity-80" href="#">Research</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-opacity hover:opacity-80" href="#">Projects</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-opacity hover:opacity-80" href="#">News</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden lg:flex items-center bg-surface-container rounded-full px-4 py-1.5 border border-outline-variant">
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant mr-2">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-label-md w-32" placeholder="Search..." type="text">
+</div>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:opacity-80">language</span>
+<button class="bg-outline text-primary font-label-md text-label-md px-6 py-2 rounded-lg border border-primary hover:bg-primary-fixed transition-all">Volunteer</button>
+<button class="bg-primary text-on-primary font-label-md text-label-md px-6 py-2 rounded-lg hover:bg-primary-container transition-all">Donate</button>
+</div>
+</header>
+<main class="pt-[96px]">
+<!-- Hero Section -->
+<section class="relative h-[870px] w-full overflow-hidden">
+<div class="absolute inset-0 z-0 bg-on-surface/40"><img src="https://lh3.googleusercontent.com/aida/AP1WRLsXfUnFLMhFuOAlfrP94GEY1ilsGEdS0olO5bZqAf7ziyybTJh1yMTwB4Xc5Dy2a_sBaWNLeeTYrIcO8eScEF1igj4unhKhKeiE-oLtWpljYuy5_9NmPdvANVlOHGg3HuIwqoH6HC59XrJX0twAf_N6bUqqASuVgLZdGen0lh_AEpVAr6lv2Okcl3YQ46jCupt-IcXuxNkbuhIjEvqxGSaT6NAWy_S_24ALKBqYAHVNZrkxMjsIAxEvRw" alt="A diverse group of people collaborating on a solar panel project in a sun-drenched rural setting" class="w-full h-full object-cover animate-fade-in">
+
+
+</div>
+<div class="relative z-10 h-full max-w-container-max mx-auto px-margin-desktop flex flex-col justify-center text-on-primary">
+<h1 class="font-display-lg text-display-lg max-w-3xl mb-stack-sm animate-fade-in">Empowering People. Transforming Communities. Sustaining the Future.</h1>
+<p class="font-body-lg text-body-lg max-w-2xl mb-stack-md opacity-90">GSSIO is a global catalyst for sustainable development, dedicated to fostering resilience and equity across 35 countries through data-driven humanitarian initiatives.</p>
+<div class="flex flex-wrap gap-gutter mb-stack-lg">
+<button class="bg-primary-container text-on-primary font-label-md text-label-md px-8 py-4 rounded-lg shadow-lg hover:translate-y-[-2px] transition-all">Explore Our Programs</button>
+<button class="bg-transparent text-on-primary border-2 border-on-primary font-label-md text-label-md px-8 py-4 rounded-lg hover:bg-on-primary hover:text-primary transition-all">Get Involved</button>
+</div>
+<!-- Floating Stats -->
+
+</div>
+</section>
+<!-- Impact Statistics Row (Mobile/Tablet View) -->
+<section class="md:hidden py-stack-lg px-margin-mobile">
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-surface p-6 rounded-xl stat-card-shadow text-center border border-outline-variant">
+<span class="font-display-md text-headline-md text-primary block">120+</span>
+<span class="font-label-md text-caption text-on-surface-variant">Projects</span>
+</div>
+<div class="bg-surface p-6 rounded-xl stat-card-shadow text-center border border-outline-variant">
+<span class="font-display-md text-headline-md text-secondary block">35</span>
+<span class="font-label-md text-caption text-on-surface-variant">Countries</span>
+</div>
+</div>
+</section>
+<!-- Focus Areas -->
+<section class="py-stack-lg bg-surface reveal active"><div class="max-w-container-max mx-auto px-margin-desktop"><div class="grid grid-cols-1 lg:grid-cols-12 gap-stack-lg items-start"><div class="lg:col-span-4 sticky top-32"><span class="text-primary font-label-md uppercase tracking-widest block mb-2">Our Mission</span><h2 class="font-display-md text-headline-lg mb-stack-sm text-on-surface">Comprehensive Focus Areas</h2><p class="font-body-md text-body-md text-on-surface-variant mb-stack-md">We address interconnected global challenges through specialized departments designed for systemic change.</p><div class="flex flex-col gap-4"><div class="flex items-center gap-4 p-4 bg-surface-container rounded-lg border-l-4 border-primary"><span class="material-symbols-outlined text-primary">verified</span><span class="font-bold">Institutional Excellence</span></div><div class="flex items-center gap-4 p-4 bg-surface-container-low rounded-lg"><span class="material-symbols-outlined text-on-surface-variant">public</span><span class="font-bold">Global Accountability</span></div></div></div><div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-gutter"><div class="bg-surface-container-lowest p-8 rounded-2xl border border-outline-variant hover:shadow-xl transition-all"><div class="w-12 h-12 bg-primary-container text-on-primary rounded-full flex items-center justify-center mb-6"><span class="material-symbols-outlined">diversity_3</span></div><h3 class="font-headline-md text-headline-md mb-4">Human Rights &amp; Empowerment</h3><p class="text-on-surface-variant mb-6">Championing gender equality, protecting civil liberties, and ensuring dignity through localized rescue and rehabilitation operations.</p><ul class="space-y-2 text-label-md text-primary"><li class="">• Women's Empowerment</li><li class="">• Human Rights</li><li class="">• Anti-Trafficking</li></ul></div><div class="bg-surface-container-lowest p-8 rounded-2xl border border-outline-variant hover:shadow-xl transition-all"><div class="w-12 h-12 bg-secondary-container text-on-secondary-container rounded-full flex items-center justify-center mb-6"><span class="material-symbols-outlined">eco</span></div><h3 class="font-headline-md text-headline-md mb-4">Sustainable Development</h3><p class="text-on-surface-variant mb-6">Mobilizing resources for carbon reduction, climate resilience, and preserving biodiversity across natural ecosystems.</p><ul class="space-y-2 text-label-md text-secondary"><li class="">• Climate Action</li><li class="">• Environmental Sustainability</li><li class="">• Community Development</li></ul></div><div class="bg-surface-container-lowest p-8 rounded-2xl border border-outline-variant hover:shadow-xl transition-all"><div class="w-12 h-12 bg-tertiary-fixed text-on-tertiary-fixed-variant rounded-full flex items-center justify-center mb-6"><span class="material-symbols-outlined">school</span></div><h3 class="font-headline-md text-headline-md mb-4">Education &amp; Youth</h3><p class="text-on-surface-variant mb-6">Universal access to quality learning, vocational training, and mentorship programs for the next generation of leaders.</p><ul class="space-y-2 text-label-md text-tertiary"><li class="">• Education</li><li class="">• Skill Development</li><li class="">• Youth Development</li></ul></div><div class="bg-surface-container-lowest p-8 rounded-2xl border border-outline-variant hover:shadow-xl transition-all"><div class="w-12 h-12 bg-surface-container-highest text-primary rounded-full flex items-center justify-center mb-6"><span class="material-symbols-outlined">biotech</span></div><h3 class="font-headline-md text-headline-md mb-4">Research &amp; Strategy</h3><p class="text-on-surface-variant mb-6">Evidence-based policy development, sociological studies, and community-driven data analysis for systemic impact.</p><ul class="space-y-2 text-label-md text-primary"><li class="">• Research</li><li class="">• Drug Awareness</li><li class="">• Sports Development</li></ul></div></div></div></div></section>
+<!-- Global Impact Map -->
+<section class="py-stack-lg bg-surface-dim reveal active"><div class="max-w-container-max mx-auto px-margin-desktop"><div class="text-center mb-stack-lg"><h2 class="font-display-md text-headline-lg mb-stack-sm text-on-surface">Global Footprint</h2><p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mx-auto">Operating across four continents, GSSIO provides mission-critical support where it's needed most.</p></div><div class="relative bg-surface-container-low rounded-3xl p-12 border border-outline-variant overflow-hidden"><div class="grid grid-cols-1 lg:grid-cols-3 gap-stack-md items-center"><div class="lg:col-span-2 relative"><svg class="w-full h-auto opacity-20 fill-primary" viewBox="0 0 1000 500"><path d="M150,150 Q200,100 300,150 T500,150 T700,150 T900,150" fill="none" stroke="currentColor" stroke-dasharray="5,5" stroke-width="2"></path><circle class="fill-primary animate-pulse" cx="200" cy="180" r="8"></circle><circle class="fill-secondary animate-pulse" cx="450" cy="320" r="8"></circle><circle class="fill-primary animate-pulse" cx="750" cy="220" r="8"></circle><circle class="fill-tertiary-container animate-pulse" cx="300" cy="380" r="8"></circle><path d="M0,0 h1000 v500 h-1000 z" fill="none"></path></svg><div class="absolute inset-0 flex items-center justify-center"><span class="material-symbols-outlined text-[120px] text-primary/10">public</span></div></div><div class="space-y-6"><div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant shadow-sm"><p class="text-primary font-display-md text-headline-lg">12</p><p class="text-on-surface-variant font-label-md uppercase tracking-widest">Regional Hubs</p><p class="text-caption mt-2">Strategic offices across Africa, Asia, and the Americas.</p></div><div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant shadow-sm"><p class="text-secondary font-display-md text-headline-lg">1,400+</p><p class="text-on-surface-variant font-label-md uppercase tracking-widest">Active Personnel</p><p class="text-caption mt-2">Dedicated professionals on the ground 24/7.</p></div><div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant shadow-sm"><p class="text-primary font-display-md text-headline-lg">35+</p><p class="text-on-surface-variant font-label-md uppercase tracking-widest">Countries</p><p class="text-caption mt-2">Expanding our reach to the most vulnerable regions.</p></div></div></div></div></div></section>
+<!-- Featured Projects -->
+<section class="py-stack-lg reveal active">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<div class="flex justify-between items-end mb-stack-lg">
+<div>
+<span class="text-primary font-label-md uppercase tracking-widest block mb-2">Our Work</span>
+<h2 class="font-display-md text-headline-lg">Featured Projects</h2>
+</div>
+<button class="text-primary border-b-2 border-primary font-label-md pb-1 hover:opacity-70 transition-opacity">View All Projects</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Project 1 -->
+<div class="bg-surface rounded-xl overflow-hidden border border-outline-variant hover:shadow-xl transition-all">
+<div class="h-64 relative">
+<div class="w-full h-full bg-cover bg-center" data-alt="A vibrant, high-quality image of young students in a newly constructed classroom in sub-Saharan Africa. The children are smiling and engaged with modern tablets and books. The lighting is warm and golden, reflecting optimism and progress. The classroom is clean, modern, and filled with educational materials." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuADcLvREaJwA5jhouObMw1S1gAtl9GXT3p1VdW3uuvT42nk3zDgZXiHKsPGErD5jaLd9j-FTnn6dw7_B-mL5DY6JZB4k3pc985K0cymmZWd-LSM3vSAP2yitABNwj7taS7UsqgFKIBCGL4o5vFByG1ZFRv4EE2xSQ6tIkgX_gLXcvwfg94tb4Fp5i2TXW8McGDN25NJWfTtr6AOCk1679CszSFb64BJrZCOxU1-LRQt8AHLJ885kgl5')"></div>
+<span class="absolute top-4 left-4 bg-primary text-on-primary text-caption font-bold px-3 py-1 rounded">EDUCATION</span>
+</div>
+<div class="p-8">
+<div class="flex items-center text-on-surface-variant text-caption mb-2">
+<span class="material-symbols-outlined text-[16px] mr-1">location_on</span> KENYA
+                            </div>
+<h3 class="font-headline-md text-headline-md mb-4">Digital Literacy Initiative</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Empowering 50,000 rural students with digital tools and internet connectivity by 2025.</p>
+<div class="mb-6">
+<div class="flex justify-between text-caption font-bold mb-2">
+<span class="">Progress</span>
+<span class="">72%</span>
+</div>
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[72%]"></div>
+</div>
+</div>
+<a class="text-primary font-bold hover:underline flex items-center" href="#">Read Case Study <span class="material-symbols-outlined ml-1">chevron_right</span></a>
+</div>
+</div>
+<!-- Project 2 -->
+<div class="bg-surface rounded-xl overflow-hidden border border-outline-variant hover:shadow-xl transition-all">
+<div class="h-64 relative">
+<div class="w-full h-full bg-cover bg-center" data-alt="A wide-angle landscape photograph of a massive reforestation project in the Amazon rainforest. Thousands of saplings are visible against the backdrop of a healthy, deep green forest. A team of conservationists is visible in the distance. The lighting is crisp morning light with morning mist, emphasizing environmental purity." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDigsYlkweoFM2fI2GYGeTtWc968RXGEJu0KDurcMx9A1qu4oHC_sX0t_leo-DjuQeDLgEuyM5HhrvShdOST4fpl6EconxZxbayrvDWGEh9fAJGxXHRt_W5BFBj5yVhMIW9S-w0RPKNLzMz_mK3oMPfd35WiLIKJ8qkfINYuCbRRqEL-hUgITFhbYa5gWN8zseDugZKQEQRyGWEtIJAOPvL-TYtIxEaYGdWp0gNhTjPYcU8vW72UQbf')"></div>
+<span class="absolute top-4 left-4 bg-secondary text-on-primary text-caption font-bold px-3 py-1 rounded">CLIMATE</span>
+</div>
+<div class="p-8">
+<div class="flex items-center text-on-surface-variant text-caption mb-2">
+<span class="material-symbols-outlined text-[16px] mr-1">location_on</span> BRAZIL
+                            </div>
+<h3 class="font-headline-md text-headline-md mb-4">Amazon Green Canopy</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Restoring 100,000 hectares of native forest to combat global carbon emissions.</p>
+<div class="mb-6">
+<div class="flex justify-between text-caption font-bold mb-2">
+<span class="">Progress</span>
+<span class="">45%</span>
+</div>
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-secondary h-full w-[45%]"></div>
+</div>
+</div>
+<a class="text-primary font-bold hover:underline flex items-center" href="#">Read Case Study <span class="material-symbols-outlined ml-1">chevron_right</span></a>
+</div>
+</div>
+<!-- Project 3 -->
+<div class="bg-surface rounded-xl overflow-hidden border border-outline-variant hover:shadow-xl transition-all">
+<div class="h-64 relative">
+<div class="w-full h-full bg-cover bg-center" data-alt="A focused close-up image of a woman artisan in India skillfully working on a traditional loom in a bright, modern workshop. The colors are rich and vibrant, showcasing intricate textiles. The lighting is soft and flattering, highlighting her focus and empowerment. The aesthetic is clean and professional." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB4ZacBJunB6IKjg00sAVi59i18Hu5nIE6DfDZbFC90oTaIm6s51Jt3Y79DLZuDD3GSjBazwcQu0uB92VPEa0Q0jX7FITce9pxI_nJN6YO2yv25kptPHKupVsKL7mJ43jbGoVno5Gh4_DqD-6C55DaYxEMA6htSe0EZBkgK65VRTjUcUTnSgaHVv7rwCYc1K6t9zdJ9xjSAZt68x9A3wAkFg2zNkpigaiwTsb4RMd5KLypB7CsrRpiR')"></div>
+<span class="absolute top-4 left-4 bg-tertiary-container text-on-primary text-caption font-bold px-3 py-1 rounded">EMPOWERMENT</span>
+</div>
+<div class="p-8">
+<div class="flex items-center text-on-surface-variant text-caption mb-2">
+<span class="material-symbols-outlined text-[16px] mr-1">location_on</span> INDIA
+                            </div>
+<h3 class="font-headline-md text-headline-md mb-4">SheLeads Micro-Finance</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Providing catalytic capital and mentorship to 5,000 women-led social enterprises.</p>
+<div class="mb-6">
+<div class="flex justify-between text-caption font-bold mb-2">
+<span class="">Progress</span>
+<span class="">90%</span>
+</div>
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-tertiary-container h-full w-[90%]"></div>
+</div>
+</div>
+<a class="text-primary font-bold hover:underline flex items-center" href="#">Read Case Study <span class="material-symbols-outlined ml-1">chevron_right</span></a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Impact Stories -->
+<section class="py-stack-lg bg-surface-container-low reveal active">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-stack-lg items-center">
+<div class="relative group">
+<div class="aspect-square rounded-3xl overflow-hidden">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-700" data-alt="A powerful, soulful black and white portrait of an elderly community leader with a kind, weathered face. He is smiling slightly, with eyes that convey wisdom and hope. The lighting is dramatic and artistic, focusing on his features. This is a high-end photography piece for a humanitarian impact story." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAE8duzwEI69uHf4ZPwikqIbic-H6x718tUUJ74iD_yxcDWkJOP25yUmCd511LXYerIx3Aq5XFokP1Q_Ae9xg-30Cy27s64nxx6lxHbl0yzK92sk52Dw4zi4kBYZBDSjRv70PRLWLgcXLwzbXb2hohhqrBcWwb7TY2GNKEZJnc9ogtwvPiHEPzapE2_697lWiuZdQHA5yqLo8cWvJbwaEZC91JeA0qhAe6tFVkKuuo1L_TelBI8d8cr')"></div>
+</div>
+<div class="absolute -bottom-10 -right-10 bg-primary-container p-10 rounded-2xl hidden lg:block">
+<span class="material-symbols-outlined text-on-primary text-[64px]">format_quote</span>
+</div>
+</div>
+<div class="lg:pl-stack-lg">
+<span class="text-primary font-label-md uppercase tracking-widest block mb-4">Human Impact</span>
+<h2 class="font-display-md text-headline-lg mb-stack-md text-on-surface">"GSSIO didn't just give us resources; they gave us our voice back."</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant italic mb-stack-md">"Before the program, our village struggled with basic infrastructure. Today, we manage our own clean water systems and our daughters are in university. The transformation is permanent."</p>
+<div>
+<p class="font-bold text-headline-md text-on-surface">Samuel Mbeki</p>
+<p class="text-on-surface-variant text-label-md">Community Council Lead, District 4</p>
+</div>
+<div class="mt-stack-md flex gap-4">
+<button class="w-12 h-12 rounded-full border border-outline flex items-center justify-center hover:bg-primary hover:text-on-primary transition-all">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="w-12 h-12 rounded-full border border-outline flex items-center justify-center hover:bg-primary hover:text-on-primary transition-all">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Research & Publications -->
+<section class="py-stack-lg reveal active">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<div class="text-center mb-stack-lg">
+<h2 class="font-display-md text-headline-lg mb-stack-sm text-on-surface">Evidence-Based Research</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mx-auto">Access our latest insights, policy recommendations, and analytical reports on global sustainability.</p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-gutter">
+<!-- Report Cover 1 -->
+<div class="group cursor-pointer">
+<div class="aspect-[3/4] bg-surface-container shadow-md rounded-lg overflow-hidden mb-4 relative">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform" data-alt="A professional book cover design for a humanitarian report. The title reads 'Sustainability Index 2024'. The cover features clean, minimalist typography and a subtle geometric pattern in navy blue and white. It looks authoritative and official, like a government-grade publication." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCbt0I7vhexINQgZMQeYB5BCvM7qdpGhomqGs-WjMsDwMefidsB-N-GXGaHNwjGHjmWJC2ut3F2MRkYN8Q48YMpGgpoiLRRjlpRerRo-T4nxsyXUEivvnS4gHyWvhOdFwhLKbHT-VUQbtcKNdnYWysGYYt2cLW7HPjW7QHIJSA1nbeZmkDmgrBPvGKicz8ffAiYYjpO0-ngmFbYVIkXThVJ2vGh1eRCS0fOiFyBOGX8Rkldbh_09Qtw')"></div>
+<div class="absolute inset-0 bg-on-surface/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
+<button class="bg-primary text-on-primary px-4 py-2 rounded-lg font-label-md flex items-center">
+<span class="material-symbols-outlined mr-2">download</span> PDF
+                                </button>
+</div>
+</div>
+<h4 class="font-bold text-label-md text-on-surface">Global Sustainability Index 2024</h4>
+<p class="text-caption text-on-surface-variant">Annual Review</p>
+</div>
+<!-- Report Cover 2 -->
+<div class="group cursor-pointer">
+<div class="aspect-[3/4] bg-surface-container shadow-md rounded-lg overflow-hidden mb-4 relative">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform" data-alt="A professional book cover design for a humanitarian report focused on gender equality. The title is 'Gender Parity in Emerging Economies'. The design is clean with soft purple and teal accents and premium professional styling." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuALhM04bgjZY6-73JrzeIa-r9h5_v8p4-D-s314DJprX7aa52MjabGlqkqET9n-ljtiHpFabvysr8aSKLMMzVK7AKmy2QaeaNX_EQpYh78Q_KnBrwNfq59vHwLaQXKF1guuwx0HF577MFkNqXYFFHUhlDVeNMlReR3Gz8GZUr6k5S-Ccf_bg2Xrd2Tao9T35kuUVDYCu6T27_tHGz1pF8yj8sRH9S8111hT1z-bgLUCxAMpeNIN-Ox3')"></div>
+<div class="absolute inset-0 bg-on-surface/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
+<button class="bg-primary text-on-primary px-4 py-2 rounded-lg font-label-md flex items-center">
+<span class="material-symbols-outlined mr-2">download</span> PDF
+                                </button>
+</div>
+</div>
+<h4 class="font-bold text-label-md text-on-surface">Gender Parity in Emerging Economies</h4>
+<p class="text-caption text-on-surface-variant">Special Report</p>
+</div>
+<!-- Report Cover 3 -->
+<div class="group cursor-pointer">
+<div class="aspect-[3/4] bg-surface-container shadow-md rounded-lg overflow-hidden mb-4 relative">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform" data-alt="A professional report cover with 'Climate Resilience Framework' as the title. It features high-quality landscape imagery of coastal protection projects in the background with crisp, white overlay typography." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB4nGdP6FG7hPzBoYJPb8ZXhiAIOiBdRt5hpEQc386i78oiEPIUc3_h6mXrL1m67Wu5DZ4zu3epygGLS81eedL2m8Rl3_k7gT-MXS9tbnAXPKJXVA9R_Pyt_h_ESbNeuHqZuvZElJE-B8Lh9Fi72zW8m8CaaAV6X9Kp7EGtqMCq7NcKgMxFnYtTLeo_dGJiokcpOjPWKAlff6P4eJA2ltyUdyxEV4nMechmm5XJXjxa2g4MUqeTbxWX')"></div>
+<div class="absolute inset-0 bg-on-surface/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
+<button class="bg-primary text-on-primary px-4 py-2 rounded-lg font-label-md flex items-center">
+<span class="material-symbols-outlined mr-2">download</span> PDF
+                                </button>
+</div>
+</div>
+<h4 class="font-bold text-label-md text-on-surface">Climate Resilience Framework</h4>
+<p class="text-caption text-on-surface-variant">Research Paper</p>
+</div>
+<!-- Report Cover 4 -->
+<div class="group cursor-pointer">
+<div class="aspect-[3/4] bg-surface-container shadow-md rounded-lg overflow-hidden mb-4 relative">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform" data-alt="A professional academic journal cover with the title 'Urban Migration Patterns 2030'. The style is highly academic, featuring maps and data visualization graphics on the cover. Minimalist and credible aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAtNLQXEeOeNUlynFdQqJviU3r5b94_ioWZMHKXl71CyUWKC40b_4iYqzKhe6peuG0KSsT8pW1jgwoW9kM20otgW96Nj24aYVvKwRKTFh6Ru-ojRrK4VRy-uTEyv7dnTFPn9kGB1lZk7tSTk7SBkzqBa-VPhdOscwma08HBgdkk70L_dJsDbdC42kv1lNb0rukhkw5k3R4b1qbvk6vJoXviq6K89cJNsbqXrXfe0Wwl6f0bBzjRKMdV')"></div>
+<div class="absolute inset-0 bg-on-surface/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
+<button class="bg-primary text-on-primary px-4 py-2 rounded-lg font-label-md flex items-center">
+<span class="material-symbols-outlined mr-2">download</span> PDF
+                                </button>
+</div>
+</div>
+<h4 class="font-bold text-label-md text-on-surface">Urban Migration Patterns 2030</h4>
+<p class="text-caption text-on-surface-variant">Sociological Study</p>
+</div>
+</div>
+</div>
+</section><section class="py-stack-lg bg-surface-container-low reveal active">
+  <div class="max-w-container-max mx-auto px-margin-desktop">
+    <div class="flex justify-between items-end mb-stack-lg">
+      <div>
+        <span class="text-primary font-label-md uppercase tracking-widest block mb-2">Updates</span>
+        <h2 class="font-display-md text-headline-lg">Latest News &amp; Insights</h2>
+      </div>
+      <button class="text-primary border-b-2 border-primary font-label-md pb-1 hover:opacity-70 transition-opacity">View All News</button>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+      <div class="bg-surface rounded-xl overflow-hidden border border-outline-variant hover:shadow-xl transition-all">
+        <div class="h-48 bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAQlNv7_n2FPimYH_EM-NotkxtBi_moiHmVueW7VWBcEsXIiDmzO-rZE7Ewq7KIUlKswvoXrCOv3GD3I9kYd_4zlQfzRRaQp9p0e2PzwYL3fX_yVLYkha03CINcWof8wk0NqkmRdZhCla7myVjsDYsf_re0_OQ1jMPis42AO5I98wFxTFTlO6-002ih1TkjG2QWSlmOzKSyV8oTDIc8bU1lLXfkLCfkDRHPBCHQMB-rF5oSkaBvdEVC')"></div>
+        <div class="p-6">
+          <div class="flex gap-2 mb-3">
+            <span class="bg-primary-container text-on-primary text-[10px] font-bold px-2 py-0.5 rounded uppercase">Field Report</span>
+            <span class="text-on-surface-variant text-caption">Oct 24, 2023</span>
+          </div>
+          <h3 class="font-bold text-body-lg mb-4">GSSIO expands sustainable agriculture program to East Africa</h3>
+          <a href="#" class="text-primary font-bold text-label-md hover:underline">Read More</a>
+        </div>
+      </div>
+      <div class="bg-surface rounded-xl overflow-hidden border border-outline-variant hover:shadow-xl transition-all">
+        <div class="h-48 bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDigsYlkweoFM2fI2GYGeTtWc968RXGEJu0KDurcMx9A1qu4oHC_sX0t_leo-DjuQeDLgEuyM5HhrvShdOST4fpl6EconxZxbayrvDWGEh9fAJGxXHRt_W5BFBj5yVhMIW9S-w0RPKNLzMz_mK3oMPfd35WiLIKJ8qkfINYuCbRRqEL-hUgITFhbYa5gWN8zseDugZKQEQRyGWEtIJAOPvL-TYtIxEaYGdWp0gNhTjPYcU8vW72UQbf')"></div>
+        <div class="p-6">
+          <div class="flex gap-2 mb-3">
+            <span class="bg-secondary-container text-on-secondary-container text-[10px] font-bold px-2 py-0.5 rounded uppercase">Policy Update</span>
+            <span class="text-on-surface-variant text-caption">Oct 18, 2023</span>
+          </div>
+          <h3 class="font-bold text-body-lg mb-4">New partnership announced at UN Climate Summit</h3>
+          <a href="#" class="text-primary font-bold text-label-md hover:underline">Read More</a>
+        </div>
+      </div>
+      <div class="bg-surface rounded-xl overflow-hidden border border-outline-variant hover:shadow-xl transition-all">
+        <div class="h-48 bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB4ZacBJunB6IKjg00sAVi59i18Hu5nIE6DfDZbFC90oTaIm6s51Jt3Y79DLZuDD3GSjBazwcQu0uB92VPEa0Q0jX7FITce9pxI_nJN6YO2yv25kptPHKupVsKL7mJ43jbGoVno5Gh4_DqD-6C55DaYxEMA6htSe0EZBkgK65VRTjUcUTnSgaHVv7rwCYc1K6t9zdJ9xjSAZt68x9A3wAkFg2zNkpigaiwTsb4RMd5KLypB7CsrRpiR')"></div>
+        <div class="p-6">
+          <div class="flex gap-2 mb-3">
+            <span class="bg-tertiary-fixed text-on-tertiary-fixed-variant text-[10px] font-bold px-2 py-0.5 rounded uppercase">Impact Story</span>
+            <span class="text-on-surface-variant text-caption">Oct 12, 2023</span>
+          </div>
+          <h3 class="font-bold text-body-lg mb-4">Empowering local artisans through digital marketplaces</h3>
+          <a href="#" class="text-primary font-bold text-label-md hover:underline">Read More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section><section class="relative h-[500px] w-full overflow-hidden reveal active">
+  <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAE8duzwEI69uHf4ZPwikqIbic-H6x718tUUJ74iD_yxcDWkJOP25yUmCd511LXYerIx3Aq5XFokP1Q_Ae9xg-30Cy27s64nxx6lxHbl0yzK92sk52Dw4zi4kBYZBDSjRv70PRLWLgcXLwzbXb2hohhqrBcWwb7TY2GNKEZJnc9ogtwvPiHEPzapE2_697lWiuZdQHA5yqLo8cWvJbwaEZC91JeA0qhAe6tFVkKuuo1L_TelBI8d8cr')"></div>
+  <div class="absolute inset-0 bg-on-surface/40"></div>
+  <div class="relative h-full max-w-container-max mx-auto px-margin-desktop flex items-center">
+    <div class="max-w-2xl bg-surface/20 backdrop-blur-md p-10 rounded-3xl border border-surface-variant/30 text-on-primary">
+      <span class="text-primary-fixed font-label-md uppercase tracking-widest block mb-4">Spotlight</span>
+      <h2 class="font-display-md text-headline-lg mb-6">Global Sustainability Summit 2024</h2>
+      <p class="font-body-lg mb-8 opacity-90">Join world leaders and humanitarian experts in Geneva for our flagship event focused on systemic change and climate resilience.</p>
+      <button class="bg-primary text-on-primary px-8 py-4 rounded-lg font-label-md hover:bg-primary-container transition-all">Register for the Summit</button>
+    </div>
+  </div>
+</section><section class="py-stack-lg bg-surface reveal active">
+  <div class="max-w-container-max mx-auto px-margin-desktop">
+    <div class="text-center mb-stack-lg">
+      <span class="text-primary font-label-md uppercase tracking-widest block mb-2">Calendar</span>
+      <h2 class="font-display-md text-headline-lg">Upcoming Global Events</h2>
+    </div>
+    <div class="max-w-3xl mx-auto space-y-6">
+      <div class="flex gap-6 p-6 bg-surface-container-lowest rounded-xl border border-outline-variant hover:shadow-md transition-all">
+        <div class="flex-shrink-0 text-center">
+          <span class="block font-bold text-headline-md text-primary">15</span>
+          <span class="block text-caption uppercase font-bold">Nov</span>
+        </div>
+        <div class="border-l border-outline-variant pl-6">
+          <h4 class="font-bold text-body-lg">Community Resilience Workshop</h4>
+          <p class="text-on-surface-variant text-label-md mb-2">Nairobi, Kenya</p>
+          <p class="text-caption">A hands-on session for local leaders on building sustainable water infrastructure.</p>
+        </div>
+      </div>
+      <div class="flex gap-6 p-6 bg-surface-container-lowest rounded-xl border border-outline-variant hover:shadow-md transition-all">
+        <div class="flex-shrink-0 text-center">
+          <span class="block font-bold text-headline-md text-secondary">04</span>
+          <span class="block text-caption uppercase font-bold">Dec</span>
+        </div>
+        <div class="border-l border-outline-variant pl-6">
+          <h4 class="font-bold text-body-lg">Annual Impact Forum</h4>
+          <p class="text-on-surface-variant text-label-md mb-2">Geneva, Switzerland</p>
+          <p class="text-caption">Presenting our 2023 impact data and strategic roadmap for the coming decade.</p>
+        </div>
+      </div>
+      <div class="flex gap-6 p-6 bg-surface-container-lowest rounded-xl border border-outline-variant hover:shadow-md transition-all">
+        <div class="flex-shrink-0 text-center">
+          <span class="block font-bold text-headline-md text-tertiary">12</span>
+          <span class="block text-caption uppercase font-bold">Jan</span>
+        </div>
+        <div class="border-l border-outline-variant pl-6">
+          <h4 class="font-bold text-body-lg">Youth Leadership Webinar</h4>
+          <p class="text-on-surface-variant text-label-md mb-2">Online</p>
+          <p class="text-caption">Connecting young activists with seasoned mentors in the humanitarian sector.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Upcoming Events Timeline -->
+<section class="py-stack-lg bg-surface reveal active"><div class="max-w-container-max mx-auto px-margin-desktop"></div></section>
+<!-- Partners -->
+<section class="py-stack-lg bg-surface reveal active"><div class="max-w-container-max mx-auto px-margin-desktop"></div></section>
+<!-- Volunteer & Donate Sections (Dual Action) -->
+<section class="py-stack-lg px-margin-desktop">
+<div class="max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-2 gap-gutter">
+<!-- Volunteer -->
+<div class="relative rounded-3xl overflow-hidden p-12 flex flex-col justify-end min-h-[400px] reveal active">
+<div class="absolute inset-0 bg-cover bg-center -z-10 group-hover:scale-105 transition-transform duration-700" data-alt="A heart-warming image of diverse volunteers wearing GSSIO branded vests, laughing together while working on a community garden. The lighting is soft and natural, emphasizing the joy of service and community spirit. The background is a vibrant, green garden space." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDPTYxMsl4MXCIZAoRCJait50e9PSWfHsr5Qf8b5OjI5QWPqK5nPO1f9IEZuMIp0zFCKcBdVrVgsps0ljrnqZS3ys2P9PHinskK9dVyGKlCP_25i28DO8MVw1prefQcyjSb7T9LR2aA7HaEoGZEUB4fx4Xc16sYVlRg_NbgS5WOLqulmu4A5YgSNSNVxtXJh6CKQkgLcdk4iXS9YJBFdF8WjyiRlfI1m6qNrOiq0ozCTPb7dR2tZYPf')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface via-on-surface/20 to-transparent -z-10"></div>
+<div class="text-on-primary">
+<h2 class="font-display-md text-headline-lg mb-4">Be the Change</h2>
+<p class="font-body-lg mb-8 opacity-80">Join our network of 12,000+ volunteers globally and apply your skills where they matter most.</p>
+<button class="bg-primary-fixed text-on-primary-fixed font-label-md px-10 py-4 rounded-lg hover:shadow-xl transition-all">Become a Volunteer</button>
+</div>
+</div>
+<!-- Donate -->
+<div class="relative rounded-3xl overflow-hidden p-12 flex flex-col justify-end min-h-[400px] bg-primary reveal active">
+<div class="relative z-10 text-on-primary">
+<h2 class="font-display-md text-headline-lg mb-4">Support Our Mission</h2>
+<p class="font-body-lg mb-8 opacity-80">Your contribution directly funds life-changing projects and sustainable development goals worldwide.</p>
+<button class="bg-on-primary text-primary font-label-md px-10 py-4 rounded-lg hover:shadow-xl transition-all">Donate Now</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter -->
+<section class="py-stack-lg bg-surface-container-highest reveal active">
+<div class="max-w-container-max mx-auto px-margin-desktop text-center">
+<div class="max-w-2xl mx-auto">
+<span class="material-symbols-outlined text-[48px] text-primary mb-4">mail</span>
+<h2 class="font-display-md text-headline-lg mb-4 text-on-surface">Stay Informed</h2>
+<p class="font-body-md text-on-surface-variant mb-stack-md">Receive monthly updates on our impact, research highlights, and ways you can help.</p>
+<form class="flex flex-col md:flex-row gap-4">
+<input class="flex-grow bg-surface-container-lowest border border-outline-variant rounded-lg px-6 py-4 focus:ring-2 focus:ring-primary focus:border-transparent outline-none" placeholder="Your email address" type="email">
+<button class="bg-primary text-on-primary px-8 py-4 rounded-lg font-label-md hover:bg-primary-container transition-all" type="submit">Subscribe Now</button>
+</form>
+<p class="text-caption text-on-surface-variant mt-4">By subscribing, you agree to our <a class="underline" href="#">Privacy Policy</a>.</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full px-margin-desktop py-stack-lg flex flex-col md:flex-row justify-between gap-gutter max-w-container-max mx-auto bg-on-surface dark:bg-surface-container-lowest">
+<div class="max-w-xs">
+<span class="font-display-md text-headline-md text-surface dark:text-on-surface block mb-4">GSSIO</span>
+<p class="font-body-md text-surface-variant dark:text-on-surface-variant mb-8">
+                Empowering the world through sustainable action and systemic humanitarian leadership since 1998.
+            </p>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full border border-surface-variant/30 flex items-center justify-center text-surface hover:border-primary-fixed transition-colors" href="#">
+<svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path></svg>
+</a>
+<a class="w-10 h-10 rounded-full border border-surface-variant/30 flex items-center justify-center text-surface hover:border-primary-fixed transition-colors" href="#">
+<svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.058-1.69-.072-4.949-.072zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg>
+</a>
+</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-stack-lg">
+<div>
+<h4 class="text-primary-fixed dark:text-primary font-bold mb-4 uppercase tracking-wider text-caption">Organization</h4>
+<ul class="space-y-2 text-surface-variant dark:text-on-surface-variant">
+<li class=""><a class="hover:text-primary-fixed dark:hover:text-primary transition-colors" href="#">About</a></li>
+<li class=""><a class="hover:text-primary-fixed dark:hover:text-primary transition-colors" href="#">Programs</a></li>
+<li class=""><a class="hover:text-primary-fixed dark:hover:text-primary transition-colors" href="#">Research</a></li>
+<li class=""><a class="hover:text-primary-fixed dark:hover:text-primary transition-colors" href="#">Media</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-primary-fixed dark:text-primary font-bold mb-4 uppercase tracking-wider text-caption">Legal</h4>
+<ul class="space-y-2 text-surface-variant dark:text-on-surface-variant">
+<li class=""><a class="hover:text-primary-fixed dark:hover:text-primary transition-colors" href="#">Privacy</a></li>
+<li class=""><a class="hover:text-primary-fixed dark:hover:text-primary transition-colors" href="#">Accessibility</a></li>
+<li class=""><a class="hover:text-primary-fixed dark:hover:text-primary transition-colors" href="#">Terms</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-primary-fixed dark:text-primary font-bold mb-4 uppercase tracking-wider text-caption">Support</h4>
+<ul class="space-y-2 text-surface-variant dark:text-on-surface-variant">
+<li class=""><a class="hover:text-primary-fixed dark:hover:text-primary transition-colors" href="#">Contact</a></li>
+<li class=""><a class="hover:text-primary-fixed dark:hover:text-primary transition-colors" href="#">Donate</a></li>
+<li class=""><a class="hover:text-primary-fixed dark:hover:text-primary transition-colors" href="#">Volunteer</a></li>
+</ul>
+</div>
+</div>
+<div class="mt-stack-lg md:mt-0 flex flex-col items-end">
+<span class="font-body-md text-surface dark:text-on-surface opacity-60">© 2024 GSSIO. All rights reserved.</span>
+<div class="mt-4 flex gap-2">
+<span class="material-symbols-outlined text-surface-variant text-[20px]">public</span>
+<span class="text-surface-variant text-caption">Global HQ: Geneva, Switzerland</span>
+</div>
+</div>
+</footer>
+<script>
+        // Scroll Animation logic
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Header Scroll Effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('py-2', 'shadow-md');
+                header.classList.remove('py-4', 'shadow-sm');
+            } else {
+                header.classList.add('py-4', 'shadow-sm');
+                header.classList.remove('py-2', 'shadow-md');
+            }
+        });
+    </script>
+
+
+
+
+
+
+
+
+</body></html>
