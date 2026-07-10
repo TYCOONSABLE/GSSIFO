@@ -6,6 +6,24 @@ uri = "file://artifacts/gssio/src/assets/images/global-map.png"
 type = "image"
 title = "generated_image"
 
+[[generated]]
+id = "T8lBexhI4pVznRwpPcgBt"
+uri = "file://attached_assets/generated_images/photorealistic_documentary_photo_of_ca14.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "ay0GskvGNGdkvYOIVvGy0"
+uri = "file://attached_assets/generated_images/photorealistic_documentary_photo_of_354a.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "5kepTbPak1bIMXjkuF1si"
+uri = "file://attached_assets/generated_images/photorealistic_documentary_photo_of_4d5b.png"
+type = "image"
+title = "generated_image"
+
 [[outputs]]
 id = "Zf4MMryYq3Il_JkwgC1mk"
 uri = "file://artifacts/gssio/src/assets/images/story-1.jpg"

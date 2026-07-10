@@ -1,14 +1,21 @@
 import { Link } from "wouter";
 import { ArrowRight } from "lucide-react";
 
+import storyMobileClinic from "@/assets/images/story-mobile-clinic.jpg";
+import storyCleanWater from "@/assets/images/story-clean-water.jpg";
+import story3 from "@/assets/images/story-3.jpg";
+import campaign from "@/assets/images/campaign.jpg";
+import storyDisasterRelief from "@/assets/images/story-disaster-relief.jpg";
+import volunteerAction from "@/assets/images/volunteer-action.jpg";
+
 export default function Stories() {
   const stories = [
-    { img: "/src/assets/images/story-1.jpg", tag: "Health", date: "Oct 12, 2023", title: "New Mobile Clinics Reach Remote Villages in Sub-Saharan Africa", desc: "How a fleet of fully-equipped medical vehicles is changing the landscape of rural healthcare access." },
-    { img: "/src/assets/images/story-2.jpg", tag: "Water", date: "Sep 28, 2023", title: "Clean Water Initiative Brings Hope to 50,000 Families", desc: "A new community-managed well system provides sustainable, clean drinking water to previously drought-stricken areas." },
-    { img: "/src/assets/images/story-3.jpg", tag: "Education", date: "Sep 15, 2023", title: "Empowering the Next Generation: Girls' Education Program Expands", desc: "Breaking down barriers to education through targeted scholarships and safe school infrastructure." },
-    { img: "/src/assets/images/campaign.jpg", tag: "Agriculture", date: "Aug 30, 2023", title: "Building Climate-Resilient Farms", desc: "Training local farmers in sustainable techniques to ensure long-term food security against changing weather patterns." },
-    { img: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=800", tag: "Disaster Relief", date: "Aug 12, 2023", title: "Rapid Response in the Wake of Tropical Cyclone", desc: "Our emergency teams deployed within 24 hours to provide shelter, food, and medical aid to affected regions." },
-    { img: "https://images.unsplash.com/photo-1542810634-71277d95dc8c?q=80&w=800", tag: "Human Rights", date: "Jul 22, 2023", title: "Protecting Vulnerable Populations in Conflict Zones", desc: "Establishing safe havens and providing legal advocacy for displaced individuals." }
+    { img: storyMobileClinic, tag: "Health", date: "Oct 12, 2023", title: "New Mobile Clinics Reach Remote Villages in Sub-Saharan Africa", desc: "How a fleet of fully-equipped medical vehicles is changing the landscape of rural healthcare access." },
+    { img: storyCleanWater, tag: "Water", date: "Sep 28, 2023", title: "Clean Water Initiative Brings Hope to 50,000 Families", desc: "A new community-managed well system provides sustainable, clean drinking water to previously drought-stricken areas." },
+    { img: story3, tag: "Education", date: "Sep 15, 2023", title: "Empowering the Next Generation: Girls' Education Program Expands", desc: "Breaking down barriers to education through targeted scholarships and safe school infrastructure." },
+    { img: campaign, tag: "Agriculture", date: "Aug 30, 2023", title: "Building Climate-Resilient Farms", desc: "Training local farmers in sustainable techniques to ensure long-term food security against changing weather patterns." },
+    { img: storyDisasterRelief, tag: "Disaster Relief", date: "Aug 12, 2023", title: "Rapid Response in the Wake of Tropical Cyclone", desc: "Our emergency teams deployed within 24 hours to provide shelter, food, and medical aid to affected regions." },
+    { img: volunteerAction, tag: "Human Rights", date: "Jul 22, 2023", title: "Protecting Vulnerable Populations in Conflict Zones", desc: "Establishing safe havens and providing legal advocacy for displaced individuals." }
   ];
 
   return (
