@@ -103,11 +103,11 @@ export default function Home() {
                 We address interconnected global challenges through specialized departments designed for systemic change.
               </p>
               <div className="flex flex-col gap-4">
-                <div className="flex items-center gap-4 p-4 bg-[#e7eeff] rounded-lg border-l-4 border-primary">
+                <div className="flex items-center gap-4 p-4 bg-muted rounded-lg border-l-4 border-primary">
                   <Shield className="text-primary w-6 h-6" />
                   <span className="font-bold text-foreground">Institutional Excellence</span>
                 </div>
-                <div className="flex items-center gap-4 p-4 bg-[#f0f3ff] rounded-lg">
+                <div className="flex items-center gap-4 p-4 bg-muted/50 rounded-lg">
                   <Globe2 className="text-muted-foreground w-6 h-6" />
                   <span className="font-bold text-foreground">Global Accountability</span>
                 </div>
@@ -137,14 +137,14 @@ export default function Home() {
       </section>
 
       {/* 4. Global Impact Map */}
-      <section className="py-24 bg-[#c8dbff]">
+      <section className="py-24 bg-muted">
         <div className="max-w-[1280px] mx-auto px-4 lg:px-16">
           <div className="text-center mb-16">
             <h2 className="text-4xl lg:text-5xl font-bold mb-4 text-foreground">Global Footprint</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">Operating across four continents, GSSIO provides mission-critical support where it's needed most.</p>
           </div>
           
-          <div className="relative bg-[#f0f3ff] rounded-3xl p-8 lg:p-12 border border-border overflow-hidden">
+          <div className="relative bg-muted/50 rounded-3xl p-8 lg:p-12 border border-border overflow-hidden">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
               <div className="lg:col-span-2 relative flex items-center justify-center min-h-[300px] overflow-hidden rounded-2xl">
                 <img src={mapImage} alt="Global connectivity map showing GSSIO's worldwide network" className="w-full h-full object-cover" />
@@ -161,7 +161,7 @@ export default function Home() {
                   <p className="text-sm mt-2 text-foreground/80">Dedicated professionals embedded within local communities.</p>
                 </div>
                 <div className="bg-white p-6 rounded-xl border border-border shadow-sm">
-                  <p className="text-[#5d4300] text-4xl font-bold">50M+</p>
+                  <p className="text-accent-foreground text-4xl font-bold">50M+</p>
                   <p className="text-muted-foreground text-xs uppercase font-medium tracking-widest mt-1">Lives Impacted</p>
                   <p className="text-sm mt-2 text-foreground/80">Beneficiaries reached since our founding in 2005.</p>
                 </div>
@@ -197,9 +197,9 @@ export default function Home() {
                 prog: 45, bg: "bg-secondary", img: projClimate 
               },
               { 
-                tag: "EMPOWERMENT", color: "bg-[#7b5900] text-white", loc: "INDIA", 
+                tag: "EMPOWERMENT", color: "bg-accent text-white", loc: "INDIA", 
                 title: "SheLeads Micro-Finance", desc: "Providing catalytic capital and mentorship to 5,000 women-led social enterprises.", 
-                prog: 90, bg: "bg-[#7b5900]", img: projEmpower
+                prog: 90, bg: "bg-accent", img: projEmpower
               }
             ].map((p, i) => (
               <div key={i} className="bg-white rounded-xl overflow-hidden border border-border hover:shadow-xl transition-all">
@@ -221,7 +221,7 @@ export default function Home() {
                       <span className="text-foreground">Progress</span>
                       <span className="text-foreground">{p.prog}%</span>
                     </div>
-                    <div className="w-full bg-[#dee8ff] h-2 rounded-full overflow-hidden">
+                    <div className="w-full bg-muted h-2 rounded-full overflow-hidden">
                       <div className={`h-full ${p.bg}`} style={{ width: `${p.prog}%` }} />
                     </div>
                   </div>
@@ -237,13 +237,13 @@ export default function Home() {
       </section>
 
       {/* 6. Impact Story Spotlight */}
-      <section className="py-24 bg-[#f0f3ff]">
+      <section className="py-24 bg-muted/50">
         <div className="max-w-[1280px] mx-auto px-4 lg:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="relative group">
               <div className="aspect-square rounded-3xl overflow-hidden bg-muted relative">
                 <img src={storyPortrait} alt="Portrait of community leader" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                <div className="absolute -bottom-6 -right-6 bg-primary p-8 rounded-2xl hidden lg:block text-white shadow-xl border-4 border-[#f0f3ff]">
+                <div className="absolute -bottom-6 -right-6 bg-primary p-8 rounded-2xl hidden lg:block text-white shadow-xl border-4 border-muted">
                   <svg className="w-12 h-12 fill-current" viewBox="0 0 24 24">
                     <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
                   </svg>
@@ -291,7 +291,7 @@ export default function Home() {
               { title: "Climate Resilience Framework", img: coverClimateResilience }
             ].map((report, i) => (
               <div key={i} className="group cursor-pointer">
-                <div className="aspect-[3/4] bg-[#e7eeff] border border-border shadow-sm rounded-lg overflow-hidden mb-4 relative flex items-center justify-center">
+                <div className="aspect-[3/4] bg-muted border border-border shadow-sm rounded-lg overflow-hidden mb-4 relative flex items-center justify-center">
                   <img src={report.img} alt={report.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                   <div className="absolute inset-0 bg-foreground/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[2px]">
                     <Button variant="secondary" className="bg-white text-primary hover:bg-gray-50 font-semibold shadow-xl">Download PDF</Button>
@@ -351,7 +351,7 @@ export default function Home() {
         </div>
         <div className="relative z-10 max-w-[1280px] mx-auto px-4 lg:px-16">
           <div className="bg-white/10 backdrop-blur-xl border border-white/20 p-10 lg:p-16 rounded-3xl max-w-3xl text-white shadow-2xl">
-            <span className="inline-block px-3 py-1 bg-[#ffd37e] text-[#5d4300] text-xs font-bold uppercase tracking-widest rounded mb-6">
+            <span className="inline-block px-3 py-1 bg-accent/20 text-accent-foreground text-xs font-bold uppercase tracking-widest rounded mb-6">
               Flagship Event
             </span>
             <h2 className="text-4xl lg:text-5xl font-bold mb-6">Global Sustainability Summit 2024</h2>
@@ -380,7 +380,7 @@ export default function Home() {
               { date: "18", month: "JAN", title: "Human Rights Defender Training", loc: "Virtual", desc: "Comprehensive training session on legal frameworks and advocacy strategies for grassroots organizers." }
             ].map((event, i) => (
               <div key={i} className="flex flex-col sm:flex-row bg-white rounded-xl border border-border hover:shadow-md transition-shadow overflow-hidden">
-                <div className="bg-[#f0f3ff] sm:w-32 flex flex-row sm:flex-col items-center justify-center p-6 border-b sm:border-b-0 sm:border-r border-border">
+                <div className="bg-muted/50 sm:w-32 flex flex-row sm:flex-col items-center justify-center p-6 border-b sm:border-b-0 sm:border-r border-border">
                   <span className="text-3xl font-bold text-primary mr-2 sm:mr-0">{event.date}</span>
                   <span className="text-sm font-bold text-muted-foreground uppercase tracking-widest">{event.month}</span>
                 </div>
@@ -430,7 +430,7 @@ export default function Home() {
               <h2 className="text-3xl lg:text-4xl font-bold mb-4">Support Our Mission</h2>
               <p className="text-lg text-white/90 mb-8 max-w-md leading-relaxed">Your financial contribution funds life-saving programs and structural development worldwide.</p>
               <Link href="/donate">
-                <Button className="bg-[#a0f399] hover:bg-[#88d982] text-[#002204] font-bold h-14 px-8 rounded-lg w-fit">
+                <Button className="bg-secondary hover:bg-secondary/80 text-white font-bold h-14 px-8 rounded-lg w-fit">
                   Make a Donation
                 </Button>
               </Link>
@@ -440,7 +440,7 @@ export default function Home() {
       </section>
 
       {/* 12. Newsletter */}
-      <section className="py-24 bg-[#f0f3ff]">
+      <section className="py-24 bg-muted/50">
         <div className="max-w-3xl mx-auto px-4 text-center">
           <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm border border-border">
             <Mail className="w-8 h-8 text-primary" />
