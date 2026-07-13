@@ -41,7 +41,7 @@ export default function Home() {
   return (
     <div className="flex flex-col font-sans">
       {/* 1. Hero Banner */}
-      <section className="relative h-[870px] w-full overflow-hidden">
+      <section className="relative h-[500px] sm:h-[650px] lg:h-[870px] w-full overflow-hidden">
         <div className="absolute inset-0 z-0">
           {heroSlides.map((slide, index) => (
             <img
@@ -57,10 +57,10 @@ export default function Home() {
         </div>
         
         <div className="relative z-30 h-full max-w-[1280px] mx-auto px-4 lg:px-16 flex flex-col justify-center text-white">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight max-w-4xl mb-6 leading-[1.1] animate-in slide-in-from-bottom-8 duration-700">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight max-w-4xl mb-4 sm:mb-6 leading-[1.1] animate-in slide-in-from-bottom-8 duration-700">
             Empowering People. Transforming Communities. Sustaining the Future.
           </h1>
-          <p className="text-lg md:text-xl max-w-2xl mb-10 opacity-90 leading-relaxed animate-in slide-in-from-bottom-8 duration-700 delay-150">
+          <p className="text-base sm:text-lg md:text-xl max-w-2xl mb-6 sm:mb-10 opacity-90 leading-relaxed animate-in slide-in-from-bottom-8 duration-700 delay-150">
             GSSIO is a global catalyst for sustainable development, dedicated to fostering resilience and equity across 35 countries through data-driven humanitarian initiatives.
           </p>
           <div className="flex flex-wrap gap-6 animate-in slide-in-from-bottom-8 duration-700 delay-300">
@@ -283,7 +283,7 @@ export default function Home() {
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">Access our latest insights, policy recommendations, and analytical reports on global sustainability.</p>
           </div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
               { title: "Sustainability Index 2024", img: coverSustainabilityIndex }, 
               { title: "Urban Migration Patterns 2030", img: coverUrbanMigration }, 
