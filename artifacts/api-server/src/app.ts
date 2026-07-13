@@ -2,6 +2,7 @@ import express, { type Express } from "express";
 import cors from "cors";
 import { pinoHttp } from "pino-http";
 import type { IncomingMessage, ServerResponse } from "http";
+import path from "path";
 import router from "./routes";
 import { logger } from "./lib/logger";
 
@@ -31,5 +32,21 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use("/api", router);
+
+// Serve static files from gssio client
+const frontendDist = path.resolve(__dirname, "../../gssio/dist");
+app.use(express.static(frontendDist));
+
+// Serve index.html for all other routes to support client-side routing (single page app)
+app.use((req, res, next) => {
+  if (req.path.startsWith("/api")) {
+    return next();
+  }
+  res.sendFile(path.resolve(frontendDist, "index.html"), (err) => {
+    if (err) {
+      next();
+    }
+  });
+});
 
 export default app;
