@@ -1,0 +1,4 @@
+{
+  "buildCommand": "pnpm --filter @workspace/gssio build",
+  "outputDirectory": "artifacts/gssio/dist"
+}
