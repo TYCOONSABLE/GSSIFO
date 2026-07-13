@@ -109,7 +109,7 @@ export default function Donate() {
 
               <div className="space-y-4 mb-8">
                 <h3 className="font-bold border-b pb-2">Personal Information</h3>
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <input type="text" placeholder="First Name" className="w-full px-4 py-3 border rounded-sm focus:outline-none focus:ring-2 focus:ring-primary" required />
                   <input type="text" placeholder="Last Name" className="w-full px-4 py-3 border rounded-sm focus:outline-none focus:ring-2 focus:ring-primary" required />
                 </div>

@@ -1,12 +1,12 @@
 import { Link } from "wouter";
 import { ArrowRight } from "lucide-react";
 
-import storyMobileClinic from "@/assets/images/story-mobile-clinic.jpg";
-import storyCleanWater from "@/assets/images/story-clean-water.jpg";
-import story3 from "@/assets/images/story-3.jpg";
-import campaign from "@/assets/images/campaign.jpg";
-import storyDisasterRelief from "@/assets/images/story-disaster-relief.jpg";
-import volunteerAction from "@/assets/images/volunteer-action.jpg";
+import storyMobileClinic from "@/assets/images/story-mobile-clinic.webp";
+import storyCleanWater from "@/assets/images/story-clean-water.webp";
+import story3 from "@/assets/images/story-3.webp";
+import campaign from "@/assets/images/campaign.webp";
+import storyDisasterRelief from "@/assets/images/story-disaster-relief.webp";
+import volunteerAction from "@/assets/images/volunteer-action.webp";
 
 export default function Stories() {
   const stories = [

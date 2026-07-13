@@ -6,22 +6,22 @@ import {
   Coins, Shield, ChevronLeft, ChevronRight, Globe, Mail, MapPin
 } from "lucide-react";
 
-import heroImage from "@/assets/images/hero-community.jpg";
-import heroSolar from "@/assets/images/hero-solar.jpg";
-import mapImage from "@/assets/images/global-map.png";
-import coverUrbanMigration from "@/assets/images/cover-urban-migration.png";
-import coverClimateResilience from "@/assets/images/cover-climate-resilience.png";
-import coverGenderParity from "@/assets/images/cover-gender-parity.png";
-import coverSustainabilityIndex from "@/assets/images/cover-sustainability-index.png";
-import projEdu from "@/assets/images/project-edu.jpg";
-import projClimate from "@/assets/images/project-climate.jpg";
-import projEmpower from "@/assets/images/project-empower.jpg";
-import storyPortrait from "@/assets/images/story-portrait.jpg";
-import news1 from "@/assets/images/news_1.jpg";
-import news2 from "@/assets/images/news_2.jpg";
-import news3 from "@/assets/images/news_3.jpg";
-import spotlightBg from "@/assets/images/spotlight-bg.jpg";
-import volunteerAction from "@/assets/images/volunteer-action.jpg";
+import heroImage from "@/assets/images/hero-community.webp";
+import heroSolar from "@/assets/images/hero-solar.webp";
+import mapImage from "@/assets/images/global-map.webp";
+import coverUrbanMigration from "@/assets/images/cover-urban-migration.webp";
+import coverClimateResilience from "@/assets/images/cover-climate-resilience.webp";
+import coverGenderParity from "@/assets/images/cover-gender-parity.webp";
+import coverSustainabilityIndex from "@/assets/images/cover-sustainability-index.webp";
+import projEdu from "@/assets/images/project-edu.webp";
+import projClimate from "@/assets/images/project-climate.webp";
+import projEmpower from "@/assets/images/project-empower.webp";
+import storyPortrait from "@/assets/images/story-portrait.webp";
+import news1 from "@/assets/images/news_1.webp";
+import news2 from "@/assets/images/news_2.webp";
+import news3 from "@/assets/images/news_3.webp";
+import spotlightBg from "@/assets/images/spotlight-bg.webp";
+import volunteerAction from "@/assets/images/volunteer-action.webp";
 
 const heroSlides = [
   { src: heroImage, alt: "GSSIO team members working together with a local community" },
@@ -283,7 +283,7 @@ export default function Home() {
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">Access our latest insights, policy recommendations, and analytical reports on global sustainability.</p>
           </div>
           
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
             {[
               { title: "Sustainability Index 2024", img: coverSustainabilityIndex }, 
               { title: "Urban Migration Patterns 2030", img: coverUrbanMigration }, 

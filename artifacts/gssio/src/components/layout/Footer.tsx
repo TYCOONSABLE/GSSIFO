@@ -1,6 +1,6 @@
 import { Link } from "wouter";
 import { Facebook, Twitter, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
-import logoImage from "@/assets/images/gssio-logo.png";
+import logoImage from "@/assets/images/gssio-logo.webp";
 
 export function Footer() {
   return (

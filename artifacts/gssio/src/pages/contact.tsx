@@ -52,7 +52,7 @@ export default function Contact() {
           <div className="bg-muted/30 p-8 rounded-sm border">
             <h2 className="text-2xl font-bold mb-6">Send a Message</h2>
             <form onSubmit={(e) => e.preventDefault()} className="space-y-4">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-bold mb-2">First Name</label>
                   <input type="text" className="w-full px-4 py-3 border rounded-sm focus:outline-none focus:ring-2 focus:ring-primary" required />

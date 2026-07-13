@@ -2,7 +2,7 @@ import { Link, useLocation } from "wouter";
 import { Menu, X, ChevronDown, Search, Globe } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import logoImage from "@/assets/images/gssio-logo.png";
+import logoImage from "@/assets/images/gssio-logo.webp";
 
 const pillars = [
   { name: "Global Health", path: "/what-we-do#health" },
