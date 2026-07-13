@@ -25,12 +25,12 @@ export function Navbar() {
       <div className="bg-primary text-white py-2 px-4 text-center text-sm font-medium">
         Join our upcoming Global Sustainability Summit 2024. <a href="#" className="underline font-bold ml-1">Register now.</a>
       </div>
-      <header className="sticky top-0 z-[100] w-full bg-background border-b transition-all duration-300 shadow-sm">
+      <header className="sticky top-0 z-[100] w-full bg-[#f8fafc] border-b transition-all duration-300 shadow-sm">
         <div className="container mx-auto px-4 h-20 flex items-center justify-between max-w-[1280px]">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-1 z-50">
             <img src={logoImage} alt="GSSIO Logo" className="h-14 w-auto object-contain" />
-            <span className="font-bold text-2xl tracking-tight text-primary hidden sm:inline-block -ml-1">
+            <span className="font-bold text-xl sm:text-2xl tracking-tight text-primary -ml-1">
               GSSIO
             </span>
           </Link>
@@ -144,7 +144,7 @@ export function Navbar() {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="lg:hidden absolute top-full left-0 right-0 bg-background z-40 overflow-y-auto border-t shadow-xl max-h-[calc(100vh-5rem)]">
+          <div className="lg:hidden absolute top-full left-0 right-0 bg-[#f8fafc] z-40 overflow-y-auto border-t shadow-xl max-h-[calc(100vh-5rem)]">
             <nav className="flex flex-col p-6 gap-6">
               <Link href="/who-we-are" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-foreground uppercase tracking-wide">
                 Who We Are
