@@ -105,60 +105,60 @@
   --elevate-1: rgba(0,0,0, .03);
   --elevate-2: rgba(0,0,0, .08);
 
-  /* Background - Paper #FBF8F2 */
-  --background: 41 53% 97%;
+  /* Background - Slate-50 clean light gray */
+  --background: 210 40% 98%;
   
-  /* Text - Ink #14201C */
-  --foreground: 161 23% 10%;
+  /* Text - Dark slate charcoal */
+  --foreground: 224 57% 10%;
 
-  /* Borders / UI - warm warm neutral */
-  --border: 41 18% 82%;
+  /* Borders / UI */
+  --border: 214 32% 91%;
   
-  /* Section Tint - Paper */
-  --card: 41 53% 97%;
-  --card-foreground: 161 23% 10%;
-  --card-border: 41 18% 82%;
+  /* Section Tint - Paper white */
+  --card: 0 0% 100%;
+  --card-foreground: 224 57% 10%;
+  --card-border: 214 32% 91%;
 
-  /* Primary - Deep Teal-Dusk #1E3A34 */
-  --primary: 167 32% 17%;
+  /* Primary - Royal Blue */
+  --primary: 217 89% 43%;
   --primary-foreground: 0 0% 100%;
 
-  /* Secondary - Sprout Green #7FA65C */
-  --secondary: 92 29% 51%;
+  /* Secondary - Slate Blue (Volunteer) */
+  --secondary: 211 25% 49%;
   --secondary-foreground: 0 0% 100%;
 
-  /* Accent - Warm Ochre #D98E3F */
-  --accent: 31 67% 55%;
-  --accent-foreground: 31 80% 12%;
+  /* Accent - Navy Blue (Donate) */
+  --accent: 210 100% 28%;
+  --accent-foreground: 0 0% 100%;
 
-  /* Muted - Parchment #EFE6D3 */
-  --muted: 41 47% 88%;
-  --muted-foreground: 161 15% 35%;
+  /* Muted - Light Blue-Gray (Search Input) */
+  --muted: 217 80% 94%;
+  --muted-foreground: 214 20% 45%;
 
   --destructive: 0 84% 60%;
   --destructive-foreground: 0 0% 100%;
 
-  --sidebar: 167 32% 17%;
+  --sidebar: 224 57% 10%;
   --sidebar-foreground: 0 0% 100%;
-  --sidebar-border: 167 32% 12%;
-  --sidebar-primary: 31 67% 55%;
-  --sidebar-primary-foreground: 31 80% 12%;
-  --sidebar-accent: 92 29% 51%;
+  --sidebar-border: 224 57% 15%;
+  --sidebar-primary: 217 89% 43%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 211 25% 49%;
   --sidebar-accent-foreground: 0 0% 100%;
-  --sidebar-ring: 92 29% 51%;
+  --sidebar-ring: 217 89% 43%;
 
-  --popover: 41 53% 97%;
-  --popover-foreground: 161 23% 10%;
-  --popover-border: 41 18% 82%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 224 57% 10%;
+  --popover-border: 214 32% 91%;
 
-  --input: 41 18% 82%;
-  --ring: 167 32% 17%;
+  --input: 214 32% 91%;
+  --ring: 217 89% 43%;
 
-  --chart-1: 167 32% 17%;
-  --chart-2: 92 29% 51%;
-  --chart-3: 31 67% 55%;
-  --chart-4: 41 47% 88%;
-  --chart-5: 161 23% 10%;
+  --chart-1: 217 89% 43%;
+  --chart-2: 211 25% 49%;
+  --chart-3: 210 100% 28%;
+  --chart-4: 217 80% 94%;
+  --chart-5: 224 57% 10%;
 
   --app-font-sans: 'IBM Plex Sans', sans-serif;
   --app-font-serif: Georgia, serif;
@@ -195,44 +195,44 @@
   --elevate-2: rgba(255,255,255, .09);
 
   /* Force light palette in dark mode for this brand */
-  --background: 41 53% 97%;
-  --foreground: 161 23% 10%;
-  --border: 41 18% 82%;
-  --card: 41 53% 97%;
-  --card-foreground: 161 23% 10%;
-  --card-border: 41 18% 82%;
-  --primary: 167 32% 17%;
+  --background: 210 40% 98%;
+  --foreground: 224 57% 10%;
+  --border: 214 32% 91%;
+  --card: 0 0% 100%;
+  --card-foreground: 224 57% 10%;
+  --card-border: 214 32% 91%;
+  --primary: 217 89% 43%;
   --primary-foreground: 0 0% 100%;
-  --secondary: 92 29% 51%;
+  --secondary: 211 25% 49%;
   --secondary-foreground: 0 0% 100%;
-  --accent: 31 67% 55%;
-  --accent-foreground: 31 80% 12%;
-  --muted: 41 47% 88%;
-  --muted-foreground: 161 15% 35%;
+  --accent: 210 100% 28%;
+  --accent-foreground: 0 0% 100%;
+  --muted: 217 80% 94%;
+  --muted-foreground: 214 20% 45%;
   --destructive: 0 84% 60%;
   --destructive-foreground: 0 0% 100%;
   
-  --sidebar: 167 32% 17%;
+  --sidebar: 224 57% 10%;
   --sidebar-foreground: 0 0% 100%;
-  --sidebar-border: 167 32% 12%;
-  --sidebar-primary: 31 67% 55%;
-  --sidebar-primary-foreground: 31 80% 12%;
-  --sidebar-accent: 92 29% 51%;
+  --sidebar-border: 224 57% 15%;
+  --sidebar-primary: 217 89% 43%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 211 25% 49%;
   --sidebar-accent-foreground: 0 0% 100%;
-  --sidebar-ring: 92 29% 51%;
+  --sidebar-ring: 217 89% 43%;
 
-  --popover: 41 53% 97%;
-  --popover-foreground: 161 23% 10%;
-  --popover-border: 41 18% 82%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 224 57% 10%;
+  --popover-border: 214 32% 91%;
 
-  --input: 41 18% 82%;
-  --ring: 167 32% 17%;
+  --input: 214 32% 91%;
+  --ring: 217 89% 43%;
 
-  --chart-1: 167 32% 17%;
-  --chart-2: 92 29% 51%;
-  --chart-3: 31 67% 55%;
-  --chart-4: 41 47% 88%;
-  --chart-5: 161 23% 10%;
+  --chart-1: 217 89% 43%;
+  --chart-2: 211 25% 49%;
+  --chart-3: 210 100% 28%;
+  --chart-4: 217 80% 94%;
+  --chart-5: 224 57% 10%;
 }
 
 

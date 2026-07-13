@@ -121,13 +121,13 @@ export function Navbar() {
             </button>
 
             <Link href="/get-involved" className="hidden lg:inline-flex">
-              <Button variant="outline" className="text-primary border-primary hover:bg-primary/5 font-semibold rounded-lg px-6">
+              <Button variant="secondary" className="font-semibold rounded-lg px-6">
                 Volunteer
               </Button>
             </Link>
 
             <Link href="/donate" className="hidden sm:inline-flex">
-              <Button className="bg-primary hover:bg-primary/90 text-white font-semibold px-6 rounded-lg transition-all">
+              <Button className="bg-accent hover:bg-accent/90 text-accent-foreground border border-accent-border font-semibold px-6 rounded-lg transition-all">
                 Donate
               </Button>
             </Link>
@@ -172,12 +172,12 @@ export function Navbar() {
               </Link>
               <div className="mt-4 flex flex-col gap-3">
                 <Link href="/get-involved" onClick={() => setMobileMenuOpen(false)}>
-                  <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary/5 rounded-lg h-12 text-lg">
+                  <Button variant="secondary" className="w-full rounded-lg h-12 text-lg">
                     Volunteer
                   </Button>
                 </Link>
                 <Link href="/donate" onClick={() => setMobileMenuOpen(false)}>
-                  <Button className="w-full bg-primary hover:bg-primary/90 text-white font-bold h-12 rounded-lg text-lg">
+                  <Button className="w-full bg-accent hover:bg-accent/90 text-accent-foreground border border-accent-border font-bold h-12 rounded-lg text-lg">
                     Donate Now
                   </Button>
                 </Link>
