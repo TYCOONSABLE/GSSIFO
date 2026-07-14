@@ -1,4 +1,9 @@
 {
   "buildCommand": "pnpm --filter @workspace/gssio build",
-  "outputDirectory": "artifacts/gssio/dist"
+  "outputDirectory": "artifacts/gssio/dist",
+  "cleanUrls": true,
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/(.*)", "dest": "/index.html" }
+  ]
 }
