@@ -44,9 +44,9 @@ export function Navbar() {
         <div className="container mx-auto px-4 h-20 flex items-center justify-between max-w-[1280px]">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-1 z-50">
-            <img src={logoImage} alt="GSSIO Logo" className="h-14 w-auto object-contain" />
+            <img src={logoImage} alt="GSSIF Logo" className="h-14 w-auto object-contain" />
             <span className="font-bold text-xl sm:text-2xl tracking-tight text-primary -ml-1">
-              GSSIO
+              GSSIF
             </span>
           </Link>
 

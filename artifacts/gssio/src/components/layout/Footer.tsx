@@ -10,11 +10,11 @@ export function Footer() {
           {/* Brand & About */}
           <div className="space-y-6">
             <Link href="/" className="flex items-center gap-3">
-              <img src={logoImage} alt="GSSIO Logo" className="h-12 w-auto object-contain bg-white rounded p-1" />
-              <span className="font-bold text-2xl tracking-tight">GSSIO</span>
+              <img src={logoImage} alt="GSSIF Logo" className="h-12 w-auto object-contain bg-white rounded p-1" />
+              <span className="font-bold text-2xl tracking-tight">GSSIF</span>
             </Link>
             <p className="text-white/80 leading-relaxed text-sm">
-              The Global Sustainability and Social Impact Organisation works across borders to build resilient communities, protect human rights, and safeguard our planet for future generations.
+              The Global Sustainability and Social Impact Foundation works across borders to build resilient communities, protect human rights, and safeguard our planet for future generations.
             </p>
             <div className="flex gap-4">
               <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors" aria-label="Facebook">
@@ -58,7 +58,7 @@ export function Footer() {
               </li>
               <li className="flex items-center gap-3 text-sm">
                 <Mail className="w-5 h-5 shrink-0 text-white/60" />
-                <span>contact@gssio.org</span>
+                <span>contact@gssif.org</span>
               </li>
             </ul>
           </div>
@@ -87,7 +87,7 @@ export function Footer() {
         </div>
 
         <div className="pt-8 border-t border-white/20 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-white/60">
-          <p>&copy; {new Date().getFullYear()} Global Sustainability and Social Impact Organisation. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Global Sustainability and Social Impact Foundation. All rights reserved.</p>
           <div className="flex gap-6">
             <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
