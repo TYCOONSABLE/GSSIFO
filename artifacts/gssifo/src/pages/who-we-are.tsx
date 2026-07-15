@@ -36,6 +36,30 @@ export default function WhoWeAre() {
                 <p className="text-sm">Humanitarian logistics expert specializing in crisis response and supply chain management.</p>
               </div>
             </div>
+            <div className="flex gap-4 items-start">
+              <div className="w-20 h-20 bg-muted rounded-full overflow-hidden shrink-0"></div>
+              <div>
+                <h4 className="font-bold text-lg mb-1">Sarah Jenkins</h4>
+                <p className="text-primary text-sm font-semibold mb-2">Chief Financial Officer</p>
+                <p className="text-sm">Investment banker turned nonprofit financial steward with 20 years managing global grant portfolios.</p>
+              </div>
+            </div>
+            <div className="flex gap-4 items-start">
+              <div className="w-20 h-20 bg-muted rounded-full overflow-hidden shrink-0"></div>
+              <div>
+                <h4 className="font-bold text-lg mb-1">Dr. Amara Okoro</h4>
+                <p className="text-primary text-sm font-semibold mb-2">Chief Medical Officer</p>
+                <p className="text-sm">Epidemiologist who pioneered mobile health clinics and vaccine distribution programs across rural regions.</p>
+              </div>
+            </div>
+            <div className="flex gap-4 items-start">
+              <div className="w-20 h-20 bg-muted rounded-full overflow-hidden shrink-0"></div>
+              <div>
+                <h4 className="font-bold text-lg mb-1">Marcus Thorne</h4>
+                <p className="text-primary text-sm font-semibold mb-2">Director of Sustainability Programs</p>
+                <p className="text-sm">Agronomist specializing in climate-resilient farming systems and sustainable water infrastructure.</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>

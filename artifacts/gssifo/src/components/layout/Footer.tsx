@@ -54,7 +54,7 @@ export function Footer() {
             <ul className="space-y-4 text-white/80">
               <li className="flex items-start gap-3 text-sm">
                 <MapPin className="w-5 h-5 shrink-0 text-white/60" />
-                <span>45, Valluvar Kottam High Rd,<br/>pONNANGIPURAM, nUNGAMBAKKAM,<br/>Chennai, Greater Chennai,<br/>Tamilnadu 600034</span>
+                <span>45, Valluvar Kottam High Rd,<br/>Ponnangipuram, Nungambakkam,<br/>Chennai, Greater Chennai,<br/>Tamilnadu 600034</span>
               </li>
               <li className="flex items-center gap-3 text-sm">
                 <Phone className="w-5 h-5 shrink-0 text-white/60" />

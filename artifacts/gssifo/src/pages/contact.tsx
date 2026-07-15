@@ -61,8 +61,9 @@ export default function Contact() {
                 <div>
                   <p className="font-bold text-foreground">Global Sustainability and Social Impact Foundation</p>
                   <p>45, Valluvar Kottam High Rd,</p>
-                  <p>pONNANGIPURAM, nUNGAMBAKKAM,</p>
-                  <p>Chennai, Greater Chennai, Tamilnadu 600034</p>
+                  <p>Ponnangipuram, Nungambakkam,</p>
+                  <p>Chennai, Greater Chennai,</p>
+                  <p>Tamilnadu 600034</p>
                 </div>
               </li>
               <li className="flex items-center gap-4">
