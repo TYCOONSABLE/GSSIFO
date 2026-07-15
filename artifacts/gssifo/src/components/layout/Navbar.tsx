@@ -1,5 +1,5 @@
 import { Link, useLocation } from "wouter";
-import { Menu, X, ChevronDown, Search, Globe } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import logoImage from "@/assets/images/gssifo-logo.webp";
@@ -128,15 +128,6 @@ export function Navbar() {
 
           {/* Actions */}
           <div className="flex items-center gap-4">
-            <div className="hidden xl:flex items-center bg-muted rounded-full px-4 py-1.5 border border-border">
-              <Search className="w-4 h-4 text-muted-foreground mr-2" />
-              <input className="bg-transparent border-none focus:outline-none text-sm w-32 placeholder:text-muted-foreground" placeholder="Search..." type="text" />
-            </div>
-            
-            <button className="text-foreground/80 hover:text-primary transition-colors hidden sm:block">
-              <Globe className="w-5 h-5" />
-            </button>
-
             <Link href="/get-involved/opportunities" className="hidden lg:inline-flex">
               <Button variant="secondary" className="font-semibold rounded-lg px-6">
                 Volunteer
