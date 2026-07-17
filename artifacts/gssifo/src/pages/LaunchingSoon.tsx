@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Mail } from "lucide-react";
-import logoImage from "@/assets/images/gssifo-logo.webp";
+import logoImage from "@/assets/images/gssifo-text-logo.png";
 
 export default function LaunchingSoon() {
   return (
@@ -35,12 +35,9 @@ export default function LaunchingSoon() {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="mb-8 flex items-center gap-2"
+          className="mb-8"
         >
-          <img src={logoImage} alt="GSSIFO Logo" className="h-16 w-auto object-contain" />
-          <span className="font-bold text-2xl sm:text-3xl tracking-tight text-[#0d55d1] -ml-1">
-            GSSIFO
-          </span>
+          <img src={logoImage} alt="GSSIFO Logo" className="h-14 w-auto object-contain" />
         </motion.div>
 
         {/* Main Card */}

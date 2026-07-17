@@ -1,5 +1,5 @@
 import { Mail } from "lucide-react";
-import logoImage from "@/assets/gssifo-logo.webp";
+import logoImage from "@/assets/gssifo-text-logo.png";
 
 export default function LaunchingSoon() {
   return (
@@ -18,11 +18,8 @@ export default function LaunchingSoon() {
 
       <div className="z-10 w-full max-w-4xl px-4 py-8 flex flex-col items-center animate-fade-in">
         {/* Logo */}
-        <div className="mb-8 flex items-center gap-2 transition-all duration-500 hover:scale-105">
-          <img src={logoImage} alt="GSSIFO Logo" className="h-16 w-auto object-contain" />
-          <span className="font-bold text-2xl sm:text-3xl tracking-tight text-[#0d55d1] -ml-1">
-            GSSIFO
-          </span>
+        <div className="mb-8 transition-all duration-500 hover:scale-105">
+          <img src={logoImage} alt="GSSIFO Logo" className="h-14 w-auto object-contain" />
         </div>
 
         {/* Main Card */}
