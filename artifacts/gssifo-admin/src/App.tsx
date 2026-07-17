@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import LaunchingSoon from "./LaunchingSoon";
 import { 
   LayoutDashboard, 
   Megaphone, 
@@ -100,6 +101,12 @@ interface VolunteerApplication {
 }
 
 export default function App() {
+  const isLaunchingSoon = true;
+
+  if (isLaunchingSoon) {
+    return <LaunchingSoon />;
+  }
+
   const [activeTab, setActiveTab] = useState("dashboard");
   const [isLoading, setIsLoading] = useState(true);
 
