@@ -1,6 +1,6 @@
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
-import { Users, Briefcase, Handshake } from "lucide-react";
+import { Users, Briefcase, Handshake, Smile, Heart } from "lucide-react";
 
 export default function GetInvolved() {
   return (
@@ -11,7 +11,7 @@ export default function GetInvolved() {
           Global impact requires collective action. Whether you're an individual looking to volunteer, a professional seeking a career with purpose, or an organization wanting to partner, there's a place for you at GSSIFO.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
           <div className="bg-white border rounded-sm p-8 text-center flex flex-col items-center">
             <div className="w-16 h-16 bg-muted rounded-full flex items-center justify-center text-primary mb-6">
               <Users className="w-8 h-8" />
@@ -55,6 +55,54 @@ export default function GetInvolved() {
                 Become a Partner
               </Button>
             </Link>
+          </div>
+        </div>
+
+        {/* Volunteer Opportunities / Camps */}
+        <div className="border-t pt-16">
+          <h2 className="text-3xl font-bold mb-4 text-center">Active Volunteer Opportunities</h2>
+          <p className="text-muted-foreground mb-12 text-center max-w-2xl mx-auto">
+            Join one of our scheduled local camps this weekend and make a direct difference in community health and well-being.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {/* Dental Camp */}
+            <div className="bg-white border rounded-sm p-8 text-center flex flex-col items-center relative">
+              <span className="absolute top-4 right-4 px-3 py-1 bg-primary/10 text-primary text-xs font-bold uppercase tracking-widest rounded">
+                Every Weekend
+              </span>
+              <div className="w-16 h-16 bg-muted rounded-full flex items-center justify-center text-primary mb-6">
+                <Smile className="w-8 h-8" />
+              </div>
+              <h3 className="text-2xl font-bold mb-4">Dental Camp</h3>
+              <p className="text-muted-foreground mb-8 flex-grow">
+                Join our free community dental camps to help promote oral health through checkups, awareness, and basic dental care.
+              </p>
+              <Link href="/get-involved/opportunities" className="w-full">
+                <Button className="w-full bg-primary hover:bg-primary/90 text-white font-bold">
+                  Register to Volunteer
+                </Button>
+              </Link>
+            </div>
+
+            {/* Blood Donor Camp */}
+            <div className="bg-white border rounded-sm p-8 text-center flex flex-col items-center relative">
+              <span className="absolute top-4 right-4 px-3 py-1 bg-primary/10 text-primary text-xs font-bold uppercase tracking-widest rounded">
+                Every Weekend
+              </span>
+              <div className="w-16 h-16 bg-muted rounded-full flex items-center justify-center text-primary mb-6">
+                <Heart className="w-8 h-8" />
+              </div>
+              <h3 className="text-2xl font-bold mb-4">Blood Donor Camp</h3>
+              <p className="text-muted-foreground mb-8 flex-grow">
+                Participate in our blood donation camps held every weekend to help save lives and support local hospitals.
+              </p>
+              <Link href="/get-involved/opportunities" className="w-full">
+                <Button className="w-full bg-primary hover:bg-primary/90 text-white font-bold">
+                  Register to Volunteer
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       </div>

@@ -8,14 +8,118 @@ import {
   opportunitiesTable, 
   positionsTable 
 } from "@workspace/db";
-import { count } from "drizzle-orm";
+import { count, eq } from "drizzle-orm";
 
 export async function seedDatabase() {
   try {
+    // 2. Seed/Update Hero Slides (Always force refresh to ensure correct images are active)
+    try {
+      await db.delete(heroSlidesTable);
+      await db.insert(heroSlidesTable).values([
+        { imageUrl: "/src/assets/images/hero-carousel-1.jpg", displayOrder: 0 },
+        { imageUrl: "/src/assets/images/hero-carousel-2.jpg", displayOrder: 1 },
+        { imageUrl: "/src/assets/images/hero-carousel-3.jpg", displayOrder: 2 }
+      ]);
+      console.log("Hero slides synchronized successfully.");
+    } catch (slideErr) {
+      console.error("Failed to synchronize hero slides:", slideErr);
+    }
+
+    // Always synchronize the positions table to match the updated organization careers
+    try {
+      await db.delete(positionsTable);
+      await db.insert(positionsTable).values([
+        {
+          id: "0",
+          title: "Digital Marketing Executive",
+          category: "Marketing",
+          location: "Chennai, India",
+          type: "Full-Time",
+          desc: "Plan and execute digital marketing campaigns, manage social media platforms, create engaging content, and increase awareness of the organization's programs and initiatives."
+        },
+        {
+          id: "1",
+          title: "Zonal Head",
+          category: "Leadership",
+          location: "Chennai, India",
+          type: "Full-Time",
+          desc: "Lead regional operations, coordinate volunteers and project teams, build partnerships, and ensure successful implementation of community outreach programs."
+        },
+        {
+          id: "2",
+          title: "AI Trainee",
+          category: "Technology",
+          location: "Chennai, India",
+          type: "Internship / Full-Time",
+          desc: "Assist in AI-based projects, support digital innovation initiatives, learn emerging technologies, and contribute to educational and community-focused solutions."
+        },
+        {
+          id: "3",
+          title: "Human Resource",
+          category: "Operations",
+          location: "Chennai, India",
+          type: "Full-Time",
+          desc: "Manage recruitment, employee engagement, volunteer onboarding, and organizational development while fostering a positive and collaborative work environment."
+        },
+        {
+          id: "4",
+          title: "Project Senior Lead",
+          category: "Projects",
+          location: "Chennai, India",
+          type: "Full-Time",
+          desc: "Oversee project planning and execution, lead multidisciplinary teams, monitor project outcomes, and ensure timely delivery of organizational initiatives."
+        },
+        {
+          id: "5",
+          title: "Project Junior Lead",
+          category: "Projects",
+          location: "Chennai, India",
+          type: "Full-Time",
+          desc: "Support project coordination, assist senior leads in implementation, track project activities, and collaborate with volunteers and community partners."
+        },
+        {
+          id: "6",
+          title: "Fundraiser",
+          category: "Fundraising",
+          location: "Chennai, India",
+          type: "Full-Time",
+          desc: "Develop fundraising strategies, engage with donors and sponsors, organize fundraising campaigns, and help secure resources to expand the organization's impact."
+        },
+        {
+          id: "7",
+          title: "CSR Delivery Head",
+          category: "Leadership",
+          location: "Chennai, India",
+          type: "Full-Time",
+          desc: "Lead Corporate Social Responsibility (CSR) partnerships, manage CSR-funded projects, coordinate with corporate stakeholders, and ensure successful delivery of social impact initiatives."
+        }
+      ]);
+      console.log("Positions synchronized successfully.");
+    } catch (posErr) {
+      console.error("Failed to synchronize positions:", posErr);
+    }
+
+    // Delete the AI Awareness Workshop event if it exists in the database
+    try {
+      await db.delete(eventsTable).where(eq(eventsTable.title, "AI Awareness Workshop"));
+      console.log("AI Awareness Workshop event removed successfully from database.");
+    } catch (eventErr) {
+      console.error("Failed to remove AI Awareness Workshop event:", eventErr);
+    }
+
+    try {
+      await db.update(bannerTable)
+        .set({ text: "Join our upcoming Responsive Youth Program" })
+        .where(eq(bannerTable.id, 1));
+      console.log("Banner updated successfully in database.");
+    } catch (bannerErr) {
+      console.error("Failed to update banner text:", bannerErr);
+    }
+
     // Check if banner table is empty (which indicates database is unseeded)
     const bannerCount = await db.select({ val: count() }).from(bannerTable);
     if (bannerCount[0].val > 0) {
-      console.log("Database already seeded. Skipping initial seeding.");
+      console.log("Database already seeded. Skipping other initial seeding.");
       return;
     }
 
@@ -24,16 +128,10 @@ export async function seedDatabase() {
     // 1. Seed Banner
     await db.insert(bannerTable).values({
       id: 1,
-      text: "Join our upcoming Global Sustainability Summit 2024.",
+      text: "Join our upcoming Responsive Youth Program",
       linkText: "Register now.",
       linkUrl: "/summit"
     });
-
-    // 2. Seed Hero Slides
-    await db.insert(heroSlidesTable).values([
-      { imageUrl: "/src/assets/images/hero-community.webp", displayOrder: 0 },
-      { imageUrl: "/src/assets/images/hero-solar.webp", displayOrder: 1 }
-    ]);
 
     // 3. Seed Stories
     await db.insert(storiesTable).values([
@@ -151,27 +249,43 @@ export async function seedDatabase() {
     await db.insert(eventsTable).values([
       {
         id: "0",
-        date: "15",
-        month: "NOV",
-        title: "Global Health Symposium 2024",
-        loc: "Geneva, Switzerland & Virtual",
-        desc: "Annual gathering of healthcare professionals and policymakers discussing equitable health access."
+        date: "14",
+        month: "AUG",
+        title: "GSSIFO Sports Summit (Trichy)",
+        loc: "Trichy",
+        desc: "Join our flagship sports event featuring competitions, teamwork, leadership, and community participation."
       },
       {
         id: "1",
-        date: "02",
-        month: "DEC",
-        title: "Community Climate Action Workshop",
-        loc: "Nairobi, Kenya",
-        desc: "Hands-on workshop for local leaders focusing on sustainable agriculture and water management."
+        date: "10",
+        month: "SEP",
+        title: "GSSIFO Sports Summit (Coimbatore)",
+        loc: "Coimbatore",
+        desc: "Participate in our flagship sports summit that brings together youth through sports, fitness, and leadership activities."
       },
       {
         id: "2",
-        date: "18",
-        month: "JAN",
-        title: "Human Rights Defender Training",
-        loc: "Virtual",
-        desc: "Comprehensive training session on legal frameworks and advocacy strategies for grassroots organizers."
+        date: "05",
+        month: "OCT",
+        title: "GSSIFO Sports Summit (Madurai)",
+        loc: "Madurai",
+        desc: "Celebrate sportsmanship and community engagement at the GSSIFO Sports Summit in Madurai."
+      },
+      {
+        id: "3",
+        date: "31",
+        month: "JUL",
+        title: "Responsive Youth Program",
+        loc: "Youth Development, Reading, Teamwork, Public Hygiene",
+        desc: "An interactive youth development program that encourages leadership, teamwork, reading habits, and community service through public hygiene initiatives."
+      },
+      {
+        id: "5",
+        date: "30",
+        month: "AUG",
+        title: "Job Fair",
+        loc: "Providing Employment Opportunities",
+        desc: "Connect job seekers with employers, explore career opportunities, receive career guidance, and participate in recruitment drives."
       }
     ]);
 
@@ -179,27 +293,41 @@ export async function seedDatabase() {
     await db.insert(opportunitiesTable).values([
       {
         id: "0",
+        title: "Dental Camp",
+        type: "On-site / Community-Based",
+        commitment: "Every Weekend",
+        desc: "Join our free community dental camps to help promote oral health through checkups, awareness, and basic dental care."
+      },
+      {
+        id: "1",
+        title: "Blood Donor Camp",
+        type: "On-site / Community-Based",
+        commitment: "Every Weekend",
+        desc: "Participate in our blood donation camps held every weekend to help save lives and support local hospitals."
+      },
+      {
+        id: "2",
         title: "Local Advocacy Coordinator",
         type: "Remote / Community-Based",
         commitment: "5-10 hours/week",
         desc: "Organize local campaigns, manage regional outreach events, and raise awareness on critical climate and sustainability initiatives."
       },
       {
-        id: "1",
+        id: "3",
         title: "Clean Water Project Assistant",
         type: "On-site (Sub-Saharan Africa / Asia)",
         commitment: "2-4 weeks (Field deployment)",
         desc: "Assist our engineering teams on the ground with mapping water points, conducting local sanitation workshops, and distributing supplies."
       },
       {
-        id: "2",
+        id: "4",
         title: "Crisis Relief Logistics volunteer",
         type: "On-site or Remote Support",
         commitment: "On-call / Emergency-based",
         desc: "Help coordinate supply lines, translate community requests, or support distribution centers in the wake of humanitarian crises."
       },
       {
-        id: "3",
+        id: "5",
         title: "Youth Mentor & Education Helper",
         type: "Hybrid / Remote Sessions",
         commitment: "2-4 hours/week",
@@ -207,49 +335,7 @@ export async function seedDatabase() {
       }
     ]);
 
-    // 7. Seed Positions
-    await db.insert(positionsTable).values([
-      {
-        id: "0",
-        title: "Senior Health Policy Advisor",
-        category: "Health",
-        location: "Geneva, Switzerland",
-        type: "Full-Time",
-        desc: "Lead GSSIFO's engagement with global health bodies, coordinate vaccination programs, and design scalable primary health policies for rural centers."
-      },
-      {
-        id: "1",
-        title: "Climate Change Adaptation Specialist",
-        category: "Climate",
-        location: "Nairobi, Kenya",
-        type: "Full-Time",
-        desc: "Implement sustainable agriculture systems, oversee agroforestry projects, and help local farmers implement climate-resilient practices."
-      },
-      {
-        id: "2",
-        title: "Emergency Operations Manager",
-        category: "Operations",
-        location: "Bangkok, Thailand",
-        type: "Full-Time",
-        desc: "Coordinate rapid-response logistics in natural disaster and conflict zones. Manage distribution pipelines and field response personnel."
-      },
-      {
-        id: "3",
-        title: "Sustainable Grants Coordinator",
-        category: "Operations",
-        location: "Remote / Geneva",
-        type: "Contract",
-        desc: "Oversee grant applications, monitor budget distributions for global water projects, and ensure reporting compliance with donor agencies."
-      },
-      {
-        id: "4",
-        title: "Director of Girls' Education Programs",
-        category: "Operations",
-        location: "New York, USA",
-        type: "Full-Time",
-        desc: "Steer GSSIFO's global education initiatives, grow scholarship fund portfolios, and coordinate local school construction guidelines."
-      }
-    ]);
+
 
     console.log("Seeding complete successfully!");
   } catch (err) {

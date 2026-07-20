@@ -1,12 +1,15 @@
 import { ReactNode } from "react";
 import { Navbar } from "./Navbar";
 import { Footer } from "./Footer";
+import { useLocation } from "wouter";
 
 interface LayoutProps {
   children: ReactNode;
 }
 
 export function Layout({ children }: LayoutProps) {
+  const [location] = useLocation();
+
   return (
     <div className="min-h-screen flex flex-col font-sans">
       <a
@@ -17,7 +20,9 @@ export function Layout({ children }: LayoutProps) {
       </a>
       <Navbar />
       <main id="main-content" className="flex-grow">
-        {children}
+        <div key={location} className="animate-page-entrance">
+          {children}
+        </div>
       </main>
       <Footer />
     </div>

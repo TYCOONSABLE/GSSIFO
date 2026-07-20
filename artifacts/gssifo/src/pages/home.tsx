@@ -1,22 +1,23 @@
 import { Link } from "wouter";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { 
-  ArrowRight, Globe2, BookOpen, Droplets, HeartHandshake, Sprout, 
+import {
+  ArrowRight, Globe2, BookOpen, Droplets, HeartHandshake, Sprout,
   Coins, Shield, ChevronLeft, ChevronRight, Globe, Mail, MapPin,
-  AlertCircle, AlertTriangle
+  AlertCircle, AlertTriangle, Smile, Heart, Utensils, Award
 } from "lucide-react";
 
-import heroImage from "@/assets/images/hero-community.webp";
-import heroSolar from "@/assets/images/hero-solar.webp";
-import mapImage from "@/assets/images/global-map.webp";
+import heroCarousel1 from "@/assets/images/hero-carousel-1.jpg";
+import heroCarousel2 from "@/assets/images/hero-carousel-2.jpg";
+import heroCarousel3 from "@/assets/images/hero-carousel-3.jpg";
+import mapImage from "@/assets/images/asian-map.jpg";
 import coverUrbanMigration from "@/assets/images/cover-urban-migration.webp";
 import coverClimateResilience from "@/assets/images/cover-climate-resilience.webp";
 import coverGenderParity from "@/assets/images/cover-gender-parity.webp";
 import coverSustainabilityIndex from "@/assets/images/cover-sustainability-index.webp";
-import projEdu from "@/assets/images/project-edu.webp";
-import projClimate from "@/assets/images/project-climate.webp";
-import projEmpower from "@/assets/images/project-empower.webp";
+import projDigitalLiteracy from "@/assets/images/project-digital-literacy.jpg";
+import projGreenValley from "@/assets/images/project-green-valley.jpg";
+import projWomenEmpowerment from "@/assets/images/project-women-empowerment.jpg";
 import storyPortrait from "@/assets/images/story-portrait.webp";
 import news1 from "@/assets/images/news_1.webp";
 import news2 from "@/assets/images/news_2.webp";
@@ -25,9 +26,15 @@ import spotlightBg from "@/assets/images/spotlight-bg.webp";
 import volunteerAction from "@/assets/images/volunteer-action.webp";
 
 const defaultSlides = [
-  { src: heroImage, alt: "GSSIFO team members working together with a local community" },
-  { src: heroSolar, alt: "GSSIFO partnership team installing solar panels with a local community" },
+  { src: heroCarousel1, alt: "GSSIFO community team and volunteers" },
+  { src: heroCarousel2, alt: "GSSIFO clean energy initiatives and solar panels" },
+  { src: heroCarousel3, alt: "GSSIFO community learning and garden programs" },
 ];
+
+const MONTH_MAP: Record<string, number> = {
+  JAN: 1, FEB: 2, MAR: 3, APR: 4, MAY: 5, JUN: 6,
+  JUL: 7, AUG: 8, SEP: 9, OCT: 10, NOV: 11, DEC: 12
+};
 
 export default function Home() {
   const [activeSlide, setActiveSlide] = useState(0);
@@ -41,11 +48,28 @@ export default function Home() {
   const [newsList, setNewsList] = useState(defaultNews);
 
   const defaultEvents = [
-    { date: "15", month: "NOV", title: "Global Health Symposium 2024", loc: "Geneva, Switzerland & Virtual", desc: "Annual gathering of healthcare professionals and policymakers discussing equitable health access." },
-    { date: "02", month: "DEC", title: "Community Climate Action Workshop", loc: "Nairobi, Kenya", desc: "Hands-on workshop for local leaders focusing on sustainable agriculture and water management." },
-    { date: "18", month: "JAN", title: "Human Rights Defender Training", loc: "Virtual", desc: "Comprehensive training session on legal frameworks and advocacy strategies for grassroots organizers." }
+    { date: "14", month: "AUG", title: "GSSIFO Sports Summit (Trichy)", loc: "Trichy", desc: "Join our flagship sports event featuring competitions, teamwork, leadership, and community participation." },
+    { date: "10", month: "SEP", title: "GSSIFO Sports Summit (Coimbatore)", loc: "Coimbatore", desc: "Participate in our flagship sports summit that brings together youth through sports, fitness, and leadership activities." },
+    { date: "05", month: "OCT", title: "GSSIFO Sports Summit (Madurai)", loc: "Madurai", desc: "Celebrate sportsmanship and community engagement at the GSSIFO Sports Summit in Madurai." },
+    { date: "31", month: "JUL", title: "Responsive Youth Program", loc: "Youth Development, Reading, Teamwork, Public Hygiene", desc: "An interactive youth development program that encourages leadership, teamwork, reading habits, and community service through public hygiene initiatives." },
+    { date: "30", month: "AUG", title: "Job Fair", loc: "Providing Employment Opportunities", desc: "Connect job seekers with employers, explore career opportunities, receive career guidance, and participate in recruitment drives." }
   ];
   const [eventsList, setEventsList] = useState(defaultEvents);
+
+  const sortedEvents = [...eventsList].sort((a, b) => {
+    const getWeight = (e: any) => {
+      const m = (e.month || "").toUpperCase();
+      const dStr = e.date || "";
+      if (m in MONTH_MAP) {
+        const d = parseInt(dStr, 10);
+        if (!isNaN(d)) {
+          return MONTH_MAP[m] * 100 + d;
+        }
+      }
+      return 9999;
+    };
+    return getWeight(a) - getWeight(b);
+  });
 
   useEffect(() => {
     const apiBase = import.meta.env.VITE_API_URL || "";
@@ -56,7 +80,7 @@ export default function Home() {
           setHeroSlidesList(data.map((src: string) => ({ src, alt: "GSSIFO Community Slider" })));
         }
       })
-      .catch(() => {});
+      .catch(() => { });
 
     fetch(`${apiBase}/api/news`)
       .then(res => res.json())
@@ -65,7 +89,7 @@ export default function Home() {
           setNewsList(data);
         }
       })
-      .catch(() => {});
+      .catch(() => { });
 
     fetch(`${apiBase}/api/events`)
       .then(res => res.json())
@@ -74,7 +98,7 @@ export default function Home() {
           setEventsList(data);
         }
       })
-      .catch(() => {});
+      .catch(() => { });
   }, []);
 
   useEffect(() => {
@@ -95,14 +119,13 @@ export default function Home() {
               key={slide.src}
               src={slide.src}
               alt={slide.alt}
-              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${
-                index === activeSlide ? "opacity-70 z-10" : "opacity-0 z-0"
-              }`}
+              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${index === activeSlide ? "opacity-70 z-10" : "opacity-0 z-0"
+                }`}
             />
           ))}
           <div className="absolute inset-0 bg-foreground/25 z-20" />
         </div>
-        
+
         <div className="relative z-30 h-full max-w-[1280px] mx-auto px-4 lg:px-16 flex flex-col justify-center text-white">
           <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight max-w-4xl mb-4 sm:mb-6 leading-[1.1] animate-in slide-in-from-bottom-8 duration-700">
             Empowering People. Transforming Communities. Sustaining the Future.
@@ -143,18 +166,20 @@ export default function Home() {
       <section className="py-24 bg-background">
         <div className="max-w-[1280px] mx-auto px-4 lg:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
-            <div className="lg:col-span-4 lg:sticky lg:top-32">
-              <span className="text-primary font-medium text-sm uppercase tracking-widest block mb-2">Our Mission</span>
-              <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-foreground leading-tight">Comprehensive Focus Areas</h2>
-              <p className="text-lg text-muted-foreground mb-10 leading-relaxed">
-                We address interconnected global challenges through specialized departments designed for systemic change.
-              </p>
+            <div className="lg:col-span-4 lg:sticky lg:top-[90px] self-start z-10 flex flex-col lg:justify-between lg:h-[480px]">
+              <div>
+                <span className="text-primary font-medium text-sm uppercase tracking-widest block mb-2">Our Mission</span>
+                <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-foreground leading-tight">Comprehensive Focus Areas</h2>
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  We address interconnected global challenges through specialized departments designed for systemic change.
+                </p>
+              </div>
               <div className="flex flex-col gap-4">
                 <div className="flex items-center gap-4 p-4 bg-muted rounded-lg border-l-4 border-primary">
                   <Shield className="text-primary w-6 h-6" />
                   <span className="font-bold text-foreground">Institutional Excellence</span>
                 </div>
-                <div className="flex items-center gap-4 p-4 bg-muted/50 rounded-lg">
+                <div className="flex items-center gap-4 p-4 bg-muted/50 rounded-lg border-l-4 border-transparent">
                   <Globe2 className="text-muted-foreground w-6 h-6" />
                   <span className="font-bold text-foreground">Global Accountability</span>
                 </div>
@@ -163,14 +188,14 @@ export default function Home() {
 
             <div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-6">
               {[
-                { icon: HeartHandshake, title: "Human Rights & Empowerment", desc: "Championing gender equality, protecting civil liberties, and ensuring dignity through localized rescue and rehabilitation operations." },
-                { icon: Sprout, title: "Climate Action", desc: "Combating climate change and promoting sustainable ecosystems through renewable energy infrastructure." },
-                { icon: Droplets, title: "Clean Water", desc: "Providing universal access to safe, affordable drinking water and sanitation facilities." },
-                { icon: Coins, title: "Economic Equity", desc: "Eradicating extreme poverty and driving sustainable economic growth through micro-finance." },
-                { icon: BookOpen, title: "Education For All", desc: "Ensuring inclusive, equitable quality education and promoting lifelong learning opportunities." },
-                { icon: Globe2, title: "Global Health", desc: "Strengthening healthcare systems and fighting infectious diseases through mobile clinics." },
-                { icon: AlertCircle, title: "Drug Awareness", desc: "Educating communities on the dangers of substance abuse, offering rehabilitation support, and advocating for youth wellness programs." },
-                { icon: AlertTriangle, title: "Women Trafficking", desc: "Preventing human trafficking through vigilance, rescuing victims, and providing rehabilitative support and vocational training." }
+                { icon: Heart, title: "Community Health", desc: "Improving community health through accessible healthcare services, preventive awareness, and humanitarian support." },
+                { icon: BookOpen, title: "Youth Education", desc: "Empowering students with knowledge, digital skills, and strong values to become responsible, confident, and future-ready citizens." },
+                { icon: Utensils, title: "Nutrition", desc: "Promoting healthier communities by improving access to nutritious food and encouraging balanced dietary habits." },
+                { icon: Sprout, title: "Climate Action", desc: "Protecting the environment through sustainable practices, community engagement, and environmental education." },
+                { icon: Award, title: "Women empowerment", desc: "Empowering women through financial inclusion, entrepreneurship, and leadership opportunities." },
+                { icon: Droplets, title: "Water Conservation", desc: "Promoting responsible water management and environmental stewardship through conservation initiatives and public awareness." },
+                { icon: Shield, title: "Human Rights", desc: "Promoting equality, dignity, and social justice by educating communities about their rights and responsibilities." },
+                { icon: AlertCircle, title: "Drug Awareness", desc: "Promoting a healthy, substance-free lifestyle by educating the community on the dangers of drug addiction and providing support networks." }
               ].map((pillar, i) => (
                 <div key={i} className="bg-white p-8 rounded-2xl border border-border hover:shadow-xl transition-all">
                   <div className="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center mb-6">
@@ -188,32 +213,41 @@ export default function Home() {
       {/* 4. Global Impact Map */}
       <section className="py-24 bg-muted">
         <div className="max-w-[1280px] mx-auto px-4 lg:px-16">
-          <div className="text-center mb-16">
+          <div className="text-center mb-4">
             <h2 className="text-4xl lg:text-5xl font-bold mb-4 text-foreground">Global Footprint</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">Operating across four continents, GSSIFO provides mission-critical support where it's needed most.</p>
+            <p className="text-sm lg:text-base text-muted-foreground max-w-2xl mx-auto">Operating across asian continents, GSSIFO provides mission-critical support where it's needed most.</p>
           </div>
-          
-          <div className="relative bg-muted/50 rounded-3xl p-8 lg:p-12 border border-border overflow-hidden">
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
-              <div className="lg:col-span-2 relative flex items-center justify-center min-h-[300px] overflow-hidden rounded-2xl">
-                <img src={mapImage} alt="Global connectivity map showing GSSIFO's worldwide network" className="w-full h-full object-cover" />
-              </div>
-              <div className="space-y-6 relative z-10">
-                <div className="bg-white p-6 rounded-xl border border-border shadow-sm">
+
+          <div className="relative bg-muted/50 rounded-3xl px-8 pt-3 pb-8 lg:px-12 lg:pt-4 lg:pb-10 border border-border overflow-hidden">
+            {/* Top Row: Map (centered and constrained with dark border card) */}
+            <div className="max-w-4xl mx-auto mb-10 relative flex items-center justify-center overflow-hidden rounded-2xl border border-[#0c57cf]/20 shadow-md bg-slate-950 p-4">
+              <img src={mapImage} alt="Asian connectivity map showing GSSIFO's network" className="h-[450px] w-auto object-contain rounded-xl" />
+            </div>
+
+            {/* Bottom Row: 3-column stats list */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10">
+              <div className="bg-white p-6 rounded-xl border border-border shadow-sm flex flex-col justify-between">
+                <div>
                   <p className="text-primary text-4xl font-bold">12</p>
                   <p className="text-muted-foreground text-xs uppercase font-medium tracking-widest mt-1">Regional Hubs</p>
-                  <p className="text-sm mt-2 text-foreground/80">Strategic offices across Africa, Asia, and the Americas.</p>
                 </div>
-                <div className="bg-white p-6 rounded-xl border border-border shadow-sm">
-                  <p className="text-secondary text-4xl font-bold">1,400+</p>
+                <p className="text-sm mt-3 text-foreground/80">Strategic offices established across Asia.</p>
+              </div>
+
+              <div className="bg-white p-6 rounded-xl border border-border shadow-sm flex flex-col justify-between">
+                <div>
+                  <p className="text-indigo-600 text-4xl font-bold">1,400+</p>
                   <p className="text-muted-foreground text-xs uppercase font-medium tracking-widest mt-1">Field Staff</p>
-                  <p className="text-sm mt-2 text-foreground/80">Dedicated professionals embedded within local communities.</p>
                 </div>
-                <div className="bg-white p-6 rounded-xl border border-border shadow-sm">
-                  <p className="text-accent-foreground text-4xl font-bold">50M+</p>
+                <p className="text-sm mt-3 text-foreground/80">Dedicated professionals embedded within local communities.</p>
+              </div>
+
+              <div className="bg-white p-6 rounded-xl border border-border shadow-sm flex flex-col justify-between">
+                <div>
+                  <p className="text-emerald-600 text-4xl font-bold">10,000+</p>
                   <p className="text-muted-foreground text-xs uppercase font-medium tracking-widest mt-1">Lives Impacted</p>
-                  <p className="text-sm mt-2 text-foreground/80">Beneficiaries reached since our founding in 2005.</p>
                 </div>
+                <p className="text-sm mt-3 text-foreground/80">Beneficiaries reached since our founding in 2025.</p>
               </div>
             </div>
           </div>
@@ -222,65 +256,68 @@ export default function Home() {
 
       {/* 5. Featured Projects */}
       <section className="py-24 bg-background">
-        <div className="max-w-[1280px] mx-auto px-4 lg:px-16">
-          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-16 gap-6">
-            <div>
-              <span className="text-primary font-medium text-sm uppercase tracking-widest block mb-2">Our Work</span>
-              <h2 className="text-4xl lg:text-5xl font-bold text-foreground">Featured Projects</h2>
-            </div>
-            <Link href="/what-we-do" className="text-primary border-b-2 border-primary font-medium text-sm pb-1 hover:opacity-70 transition-opacity">
-              View All Projects
-            </Link>
+        <div className="max-w-[1500px] w-[95%] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <span className="text-primary font-medium text-sm uppercase tracking-widest block mb-2">Our Work</span>
+            <h2 className="text-4xl lg:text-5xl font-bold text-foreground">Featured Projects</h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
             {[
-              { 
-                tag: "EDUCATION", color: "bg-primary text-white", loc: "KENYA", 
-                title: "Digital Literacy Initiative", desc: "Empowering 50,000 rural students with digital tools and internet connectivity by 2025.", 
-                prog: 72, bg: "bg-primary", img: projEdu
+              {
+                tag: "EDUCATION", color: "bg-primary text-white", loc: "INDIA",
+                title: "Digital Literacy Initiative",
+                slug: "digital-literacy",
+                desc: "Empowering students and communities with digital literacy, AI awareness, responsible technology usage, and future-ready skills through interactive learning programs.",
+                img: projDigitalLiteracy
               },
-              { 
-                tag: "CLIMATE", color: "bg-secondary text-white", loc: "BRAZIL", 
-                title: "Amazon Green Canopy", desc: "Restoring 100,000 hectares of native forest to combat global carbon emissions.", 
-                prog: 45, bg: "bg-secondary", img: projClimate 
+              {
+                tag: "ENVIRONMENT", color: "bg-secondary text-white", loc: "INDIA",
+                title: "Green Valley",
+                slug: "green-valley",
+                desc: "A nationwide environmental initiative focused on cleaning ponds, lakes, and rivers while leading tree plantation drives across India to create cleaner and greener communities.",
+                img: projGreenValley
               },
-              { 
-                tag: "EMPOWERMENT", color: "bg-accent text-white", loc: "INDIA", 
-                title: "SheLeads Micro-Finance", desc: "Providing catalytic capital and mentorship to 5,000 women-led social enterprises.", 
-                prog: 90, bg: "bg-accent", img: projEmpower
+              {
+                tag: "EMPOWERMENT", color: "bg-accent text-white", loc: "INDIA",
+                title: "Women empowerment",
+                slug: "women-empowerment",
+                desc: "Supporting women through entrepreneurship, mentorship, financial literacy, and microfinance opportunities to help them achieve economic independence and sustainable livelihoods.",
+                img: projWomenEmpowerment
               }
             ].map((p, i) => (
-              <div key={i} className="bg-white rounded-xl overflow-hidden border border-border hover:shadow-xl transition-all">
-                <div className="h-64 relative bg-muted">
-                  <img src={p.img} alt={p.title} className="w-full h-full object-cover" />
-                  <span className={`absolute top-4 left-4 text-xs font-bold px-3 py-1 rounded ${p.color}`}>
+              <div key={i} className="bg-white rounded-none border border-border shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col h-full hover:-translate-y-1.5 overflow-hidden group">
+                <div className="h-64 sm:h-72 relative bg-muted flex-shrink-0 rounded-none">
+                  <img src={p.img} alt={p.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 rounded-none" />
+                  <span className={`absolute top-5 left-5 text-xs font-bold px-3.5 py-1.5 rounded-sm shadow-md ${p.color}`}>
                     {p.tag}
                   </span>
                 </div>
-                <div className="p-8">
+                <div className="p-8 sm:p-10 flex flex-col flex-grow">
                   <div className="flex items-center text-muted-foreground text-xs font-medium tracking-wide mb-3">
-                    <MapPin className="w-3 h-3 mr-1" /> {p.loc}
+                    <MapPin className="w-3.5 h-3.5 mr-1.5" /> {p.loc}
                   </div>
-                  <h3 className="text-2xl font-bold mb-4 text-foreground">{p.title}</h3>
-                  <p className="text-muted-foreground mb-6 leading-relaxed text-[15px]">{p.desc}</p>
-                  
-                  <div className="mb-6">
-                    <div className="flex justify-between text-xs font-bold mb-2">
-                      <span className="text-foreground">Progress</span>
-                      <span className="text-foreground">{p.prog}%</span>
-                    </div>
-                    <div className="w-full bg-muted h-2 rounded-full overflow-hidden">
-                      <div className={`h-full ${p.bg}`} style={{ width: `${p.prog}%` }} />
-                    </div>
+                  <h3 className="text-2xl font-bold mb-4 text-foreground group-hover:text-primary transition-colors">{p.title}</h3>
+                  <p className="text-muted-foreground mb-6 leading-relaxed text-[15px] sm:text-base flex-grow">{p.desc}</p>
+
+                  <div className="pt-4 border-t border-slate-100">
+                    <Link href={`/projects/${p.slug}`} className="text-primary font-bold hover:underline inline-flex items-center group/link">
+                      <span>Learn More</span>
+                      <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover/link:translate-x-1.5" />
+                    </Link>
                   </div>
-                  
-                  <Link href={`/what-we-do`} className="text-primary font-bold hover:underline flex items-center">
-                    Read Case Study <ArrowRight className="ml-1 w-4 h-4" />
-                  </Link>
                 </div>
               </div>
             ))}
+          </div>
+
+          <div className="mt-14 text-center">
+            <Link href="/projects">
+              <Button size="lg" className="h-14 px-8 text-base bg-[#0c57cf] hover:bg-[#0c57cf]/90 text-white font-bold rounded-none border-0 shadow-lg inline-flex items-center gap-2">
+                <span>View All Projects</span>
+                <ArrowRight className="w-5 h-5" />
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
@@ -402,15 +439,15 @@ export default function Home() {
         <div className="relative z-10 max-w-[1280px] mx-auto px-4 lg:px-16">
           <div className="bg-white/10 backdrop-blur-xl border border-white/20 p-10 lg:p-16 rounded-3xl max-w-3xl text-white shadow-2xl">
             <span className="inline-block px-3 py-1 bg-accent/20 text-accent-foreground text-xs font-bold uppercase tracking-widest rounded mb-6">
-              Flagship Event
+              Responsive Youth Event
             </span>
-            <h2 className="text-4xl lg:text-5xl font-bold mb-6">Global Sustainability Summit 2024</h2>
+            <h2 className="text-4xl lg:text-5xl font-bold mb-6">Responsive Youth Program</h2>
             <p className="text-lg text-white/90 mb-8 leading-relaxed">
-              Join world leaders, climate scientists, and grassroots activists in Geneva to forge actionable frameworks for the next decade of sustainable development.
+              Empowering young people through leadership, teamwork, reading habits, public hygiene initiatives, sports, career opportunities, and community engagement across Tamil Nadu.
             </p>
             <Link href="/summit">
               <Button size="lg" className="bg-white text-primary hover:bg-gray-100 font-bold px-8 h-14 rounded-lg">
-                Register Now
+                Register for Event
               </Button>
             </Link>
           </div>
@@ -424,35 +461,85 @@ export default function Home() {
             <span className="text-primary font-medium text-sm uppercase tracking-widest block mb-2">Get Involved</span>
             <h2 className="text-4xl lg:text-5xl font-bold mb-4 text-foreground">Upcoming Events</h2>
           </div>
-          
+
           <div className="max-w-4xl mx-auto flex flex-col gap-6">
-            {eventsList.map((event, i) => (
-              <div key={i} className="flex flex-col sm:flex-row bg-white rounded-xl border border-border hover:shadow-md transition-shadow overflow-hidden">
-                <div className="bg-muted/50 sm:w-32 flex flex-row sm:flex-col items-center justify-center p-6 border-b sm:border-b-0 sm:border-r border-border">
-                  <span className="text-3xl font-bold text-primary mr-2 sm:mr-0">{event.date}</span>
-                  <span className="text-sm font-bold text-muted-foreground uppercase tracking-widest">{event.month}</span>
+            {sortedEvents.slice(0, 3).map((event, i) => (
+              <div key={i} className="flex flex-col sm:flex-row bg-white rounded-xl border border-border hover:shadow-md transition-shadow overflow-hidden min-h-[120px]">
+                {/* Date Section (Fixed width, centered text, equal sizing) */}
+                <div className="bg-slate-50/80 sm:w-36 flex-shrink-0 flex flex-row sm:flex-col items-center justify-center p-6 border-b sm:border-b-0 sm:border-r border-border">
+                  <span className="text-3xl font-extrabold text-[#0c57cf] mr-2 sm:mr-0 tracking-tight">{event.date}</span>
+                  <span className="text-xs font-bold text-slate-500 uppercase tracking-widest mt-1">{event.month}</span>
                 </div>
-                <div className="p-6 flex-grow flex flex-col justify-center">
-                  <h3 className="text-xl font-bold mb-2 text-foreground">{event.title}</h3>
-                  <div className="flex items-center text-sm text-muted-foreground font-medium mb-3">
-                    <MapPin className="w-4 h-4 mr-1" /> {event.loc}
+
+                {/* Content Section (Flexible width, consistent internal margins) */}
+                <div className="p-6 flex-grow flex flex-col justify-center gap-1.5">
+                  <h3 className="text-xl font-bold text-foreground leading-snug">{event.title}</h3>
+                  <div className="flex items-center text-sm text-muted-foreground font-medium">
+                    <MapPin className="w-4 h-4 mr-1.5 text-primary/80 flex-shrink-0" />
+                    <span>{event.loc}</span>
                   </div>
-                  <p className="text-muted-foreground text-sm leading-relaxed">{event.desc}</p>
-                </div>
-                <div className="p-6 flex items-center justify-center sm:justify-end border-t sm:border-t-0 sm:border-l border-border bg-gray-50/50">
-                  <Link href="/summit" className="w-full sm:w-auto">
-                    <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white rounded-lg px-6 w-full sm:w-auto font-semibold">
-                      Register
-                    </Button>
-                  </Link>
+                  <p className="text-muted-foreground text-sm leading-relaxed mt-1">{event.desc}</p>
                 </div>
               </div>
             ))}
           </div>
           <div className="mt-10 text-center">
-            <Link href="/get-involved" className="text-primary font-bold hover:underline inline-flex items-center">
+            <Link href="/events" className="text-primary font-bold hover:underline inline-flex items-center">
               View Full Calendar <ArrowRight className="ml-1 w-4 h-4" />
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* 10.5. Get Involved Section */}
+      <section className="py-24 bg-muted/30 border-t border-b border-border">
+        <div className="max-w-[1280px] mx-auto px-4 lg:px-16">
+          <div className="text-center mb-16">
+            <span className="text-primary font-medium text-sm uppercase tracking-widest block mb-2">Get Involved</span>
+            <h2 className="text-4xl lg:text-5xl font-bold mb-4 text-foreground">Volunteer Opportunities</h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Join our community-led initiatives and make a direct impact on the ground.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {/* Dental Camp */}
+            <div className="bg-white border border-border rounded-xl p-8 flex flex-col items-center text-center hover:shadow-md transition-shadow relative">
+              <span className="absolute top-4 right-4 px-3 py-1 bg-primary/10 text-primary text-xs font-bold uppercase tracking-widest rounded">
+                Every Weekend
+              </span>
+              <div className="w-16 h-16 bg-muted rounded-full flex items-center justify-center text-primary mb-6">
+                <Smile className="w-8 h-8" />
+              </div>
+              <h3 className="text-2xl font-bold mb-4 text-foreground">Dental Camp</h3>
+              <p className="text-muted-foreground mb-8 flex-grow leading-relaxed">
+                Join our free community dental camps to help promote oral health through checkups, awareness, and basic dental care.
+              </p>
+              <Link href="/get-involved/opportunities" className="w-full">
+                <Button className="w-full bg-primary hover:bg-primary/90 text-white font-bold h-12 rounded-lg">
+                  Volunteer Now
+                </Button>
+              </Link>
+            </div>
+
+            {/* Blood Donor Camp */}
+            <div className="bg-white border border-border rounded-xl p-8 flex flex-col items-center text-center hover:shadow-md transition-shadow relative">
+              <span className="absolute top-4 right-4 px-3 py-1 bg-primary/10 text-primary text-xs font-bold uppercase tracking-widest rounded">
+                Every Weekend
+              </span>
+              <div className="w-16 h-16 bg-muted rounded-full flex items-center justify-center text-primary mb-6">
+                <HeartHandshake className="w-8 h-8" />
+              </div>
+              <h3 className="text-2xl font-bold mb-4 text-foreground">Blood Donor Camp</h3>
+              <p className="text-muted-foreground mb-8 flex-grow leading-relaxed">
+                Participate in our blood donation camps held every weekend to help save lives and support local hospitals.
+              </p>
+              <Link href="/get-involved/opportunities" className="w-full">
+                <Button className="w-full bg-primary hover:bg-primary/90 text-white font-bold h-12 rounded-lg">
+                  Volunteer Now
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
@@ -485,11 +572,11 @@ export default function Home() {
           </div>
           <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-foreground">Stay Informed</h2>
           <p className="text-lg text-muted-foreground mb-10">Subscribe to our monthly briefing for the latest updates on our global initiatives.</p>
-          
+
           <form className="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto" onSubmit={(e) => e.preventDefault()}>
-            <input 
-              type="email" 
-              placeholder="Enter your email address" 
+            <input
+              type="email"
+              placeholder="Enter your email address"
               className="flex-grow bg-white border border-border text-foreground px-6 py-4 rounded-lg outline-none focus:ring-2 focus:ring-primary shadow-sm"
               required
             />

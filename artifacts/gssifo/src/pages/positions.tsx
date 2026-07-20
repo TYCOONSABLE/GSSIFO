@@ -13,48 +13,69 @@ export default function Positions() {
     lastName: "",
     email: "",
     phone: "",
-    position: "Senior Health Policy Advisor",
+    position: "Digital Marketing Executive",
     resumeLink: "",
     coverLetter: "",
   });
 
-  const categories = ["All", "Health", "Climate", "Operations"];
+  const categories = ["All"];
 
   const defaultPos = [
     {
-      title: "Senior Health Policy Advisor",
-      category: "Health",
-      location: "Geneva, Switzerland",
+      title: "Digital Marketing Executive",
+      category: "Marketing",
+      location: "Chennai, India",
       type: "Full-Time",
-      desc: "Lead GSSIFO's engagement with global health bodies, coordinate vaccination programs, and design scalable primary health policies for rural centers.",
+      desc: "Plan and execute digital marketing campaigns, manage social media platforms, create engaging content, and increase awareness of the organization's programs and initiatives.",
     },
     {
-      title: "Climate Change Adaptation Specialist",
-      category: "Climate",
-      location: "Nairobi, Kenya",
+      title: "Zonal Head",
+      category: "Leadership",
+      location: "Chennai, India",
       type: "Full-Time",
-      desc: "Implement sustainable agriculture systems, oversee agroforestry projects, and help local farmers implement climate-resilient practices.",
+      desc: "Lead regional operations, coordinate volunteers and project teams, build partnerships, and ensure successful implementation of community outreach programs.",
     },
     {
-      title: "Emergency Operations Manager",
+      title: "AI Trainee",
+      category: "Technology",
+      location: "Chennai, India",
+      type: "Internship / Full-Time",
+      desc: "Assist in AI-based projects, support digital innovation initiatives, learn emerging technologies, and contribute to educational and community-focused solutions.",
+    },
+    {
+      title: "Human Resource",
       category: "Operations",
-      location: "Bangkok, Thailand",
+      location: "Chennai, India",
       type: "Full-Time",
-      desc: "Coordinate rapid-response logistics in natural disaster and conflict zones. Manage distribution pipelines and field response personnel.",
+      desc: "Manage recruitment, employee engagement, volunteer onboarding, and organizational development while fostering a positive and collaborative work environment.",
     },
     {
-      title: "Sustainable Grants Coordinator",
-      category: "Operations",
-      location: "Remote / Geneva",
-      type: "Contract",
-      desc: "Oversee grant applications, monitor budget distributions for global water projects, and ensure reporting compliance with donor agencies.",
+      title: "Project Senior Lead",
+      category: "Projects",
+      location: "Chennai, India",
+      type: "Full-Time",
+      desc: "Oversee project planning and execution, lead multidisciplinary teams, monitor project outcomes, and ensure timely delivery of organizational initiatives.",
     },
     {
-      title: "Director of Girls' Education Programs",
-      category: "Operations",
-      location: "New York, USA",
+      title: "Project Junior Lead",
+      category: "Projects",
+      location: "Chennai, India",
       type: "Full-Time",
-      desc: "Steer GSSIFO's global education initiatives, grow scholarship fund portfolios, and coordinate local school construction guidelines.",
+      desc: "Support project coordination, assist senior leads in implementation, track project activities, and collaborate with volunteers and community partners.",
+    },
+    {
+      title: "Fundraiser",
+      category: "Fundraising",
+      location: "Chennai, India",
+      type: "Full-Time",
+      desc: "Develop fundraising strategies, engage with donors and sponsors, organize fundraising campaigns, and help secure resources to expand the organization's impact.",
+    },
+    {
+      title: "CSR Delivery Head",
+      category: "Leadership",
+      location: "Chennai, India",
+      type: "Full-Time",
+      desc: "Lead Corporate Social Responsibility (CSR) partnerships, manage CSR-funded projects, coordinate with corporate stakeholders, and ensure successful delivery of social impact initiatives.",
     },
   ];
 
@@ -145,20 +166,22 @@ export default function Positions() {
         </div>
 
         {/* Categories / Filter */}
-        <div className="flex flex-wrap justify-center gap-3 mb-10">
-          {categories.map((cat) => (
-            <Button
-              key={cat}
-              variant={activeCategory === cat ? "default" : "outline"}
-              onClick={() => setActiveCategory(cat)}
-              className={`rounded-full px-6 font-semibold ${
-                activeCategory === cat ? "bg-primary text-white" : "border-border text-foreground hover:bg-muted"
-              }`}
-            >
-              {cat}
-            </Button>
-          ))}
-        </div>
+        {categories.length > 1 && (
+          <div className="flex flex-wrap justify-center gap-3 mb-10">
+            {categories.map((cat) => (
+              <Button
+                key={cat}
+                variant={activeCategory === cat ? "default" : "outline"}
+                onClick={() => setActiveCategory(cat)}
+                className={`rounded-full px-6 font-semibold ${
+                  activeCategory === cat ? "bg-primary text-white" : "border-border text-foreground hover:bg-muted"
+                }`}
+              >
+                {cat}
+              </Button>
+            ))}
+          </div>
+        )}
 
         {/* Positions List */}
         <div className="space-y-6 mb-20">

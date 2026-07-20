@@ -1,6 +1,6 @@
 import { Link } from "wouter";
-import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
-import logoImage from "@/assets/images/gssifo-logo.webp";
+import { Facebook, Instagram, Youtube, Linkedin, Mail, MapPin, Phone } from "lucide-react";
+import footerLogo from "@/assets/images/gssifo-footer-logo.png";
 
 export function Footer() {
   return (
@@ -10,40 +10,39 @@ export function Footer() {
           {/* Brand & About */}
           <div className="space-y-6">
             <Link href="/" className="flex items-center gap-3">
-              <img src={logoImage} alt="GSSIFO Logo" className="h-12 w-auto object-contain bg-white rounded p-1" />
+              <img src={footerLogo} alt="GSSIFO Logo" className="h-16 w-auto object-contain" />
               <span className="font-bold text-2xl tracking-tight">GSSIFO</span>
             </Link>
             <p className="text-white/80 leading-relaxed text-sm">
               The Global Sustainability and Social Impact Foundation works across borders to build resilient communities, protect human rights, and safeguard our planet for future generations.
             </p>
             <div className="flex gap-4">
-              <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors" aria-label="Facebook">
+              <a href="https://www.facebook.com/profile.php?id=61591806668549" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors" aria-label="Facebook">
                 <Facebook className="w-5 h-5" />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors" aria-label="X (formerly Twitter)">
+              <a href="https://x.com/GSSIFO" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors" aria-label="X (formerly Twitter)">
                 <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
                   <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                 </svg>
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors" aria-label="Instagram">
+              <a href="https://www.instagram.com/gssifoglobal/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors" aria-label="Instagram">
                 <Instagram className="w-5 h-5" />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors" aria-label="LinkedIn">
+              <a href="https://www.linkedin.com/in/gssifo" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors" aria-label="LinkedIn">
                 <Linkedin className="w-5 h-5" />
+              </a>
+              <a href="https://www.youtube.com/@GSSIFO" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors" aria-label="YouTube">
+                <Youtube className="w-5 h-5" />
               </a>
             </div>
           </div>
 
-          {/* Quick Links */}
           <div>
             <h3 className="font-semibold text-lg mb-6">Explore</h3>
             <ul className="space-y-4">
               <li><Link href="/who-we-are" className="text-white/80 hover:text-white transition-colors">Who We Are</Link></li>
               <li><Link href="/what-we-do" className="text-white/80 hover:text-white transition-colors">What We Do</Link></li>
-              {/* Hidden for now
-              <li><Link href="/impact-reports" className="text-white/80 hover:text-white transition-colors">Impact & Reports</Link></li>
-              <li><Link href="/stories" className="text-white/80 hover:text-white transition-colors">Stories from the Field</Link></li>
-              */}
+              <li><Link href="/projects" className="text-white/80 hover:text-white transition-colors">All Projects</Link></li>
               <li><Link href="/get-involved" className="text-white/80 hover:text-white transition-colors">Get Involved</Link></li>
             </ul>
           </div>
@@ -93,9 +92,8 @@ export function Footer() {
         <div className="pt-8 border-t border-white/20 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-white/60">
           <p>&copy; {new Date().getFullYear()} Global Sustainability and Social Impact Foundation. All rights reserved.</p>
           <div className="flex gap-6">
+            <Link href="/contact" className="hover:text-white transition-colors">Contact Us</Link>
             <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
-            <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
-            <Link href="/accessibility" className="hover:text-white transition-colors">Accessibility</Link>
           </div>
         </div>
       </div>

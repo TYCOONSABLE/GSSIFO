@@ -40,6 +40,9 @@ const adminDist = path.resolve(__dirname, "../../gssifo-admin/dist");
 app.use(express.static(frontendDist));
 app.use("/admin", express.static(adminDist));
 
+// Serve src/assets folder for dynamically referenced assets from database seeds
+app.use("/src/assets", express.static(path.resolve(__dirname, "../../gssifo/src/assets")));
+
 // Serve index.html for all other routes to support client-side routing (single page app)
 app.use((req, res, next) => {
   if (req.path.startsWith("/api")) {
